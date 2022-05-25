@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {provideAuth, getAuth } from '@angular/fire/auth';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SigninComponent } from './views/signin/signin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SigninComponent } from './views/signin/signin.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

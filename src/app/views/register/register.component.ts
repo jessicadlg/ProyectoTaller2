@@ -2,16 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class SigninComponent implements OnInit {
 
-   usuario = {
-     email: '',
-     password: ''
-   }
- 
+  constructor() { }
+
   ngOnInit(): void {
   }
 
