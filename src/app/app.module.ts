@@ -8,20 +8,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {provideAuth, getAuth } from '@angular/fire/auth';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SigninComponent } from './views/signin/signin.component';
-<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
-=======
-import { SignupComponent } from './views/signup/signup.component';
-import { HomeComponent } from './views/home/home.component';
->>>>>>> 5ae52601c3e993ea2142ae74dec92a6c38ff6674
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SigninComponent,
-    SignupComponent,
-    HomeComponent
+    SigninComponent
   ],
   imports: [
     BrowserModule,
