@@ -1,1 +1,36 @@
-<p>signin works!</p>
+
+<main class="mt-4">
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <h3 class="mb-3 fw-normal text-center">Iniciar sesión</h3>
+    <div class="content">
+      <div class="form-element form-stack">
+        <label for="usuario" class="form-label">Usuario</label>
+        <input class="campo-entrada ms-2" type="text" name="usuario" formControlName="usuario"
+        />
+        <div *ngIf="signinForm.get('usuario')?.touched && signinForm.get('usuario')?.errors?.['required']"
+        class="alert alert-danger">El usuario es requerido</div>
+      </div>
+      <div class="form-element form-stack">
+        <label for="password" class="form-label">Contraseña</label>
+        <input class="campo-entrada ms-2" type="password" name="password" formControlName="password" />
+        <div *ngIf="signinForm.get('password')?.touched && signinForm.get('password')?.errors?.['required']"
+        class="alert alert-danger">El password es requerido</div>
+      </div>
+      <div class="form-element form-submit">
+        <input
+          class="w-100 btn btn-lg btn-primary"
+          type="submit"
+          value="Ingresar"
+        />
+      </div>
+      <label class="mt-4"
+        >Aun no tenes usuario?
+        <span
+          class="text-decoration-underline pointer text-primary"
+          (click)="irARegistro()"
+          >Registrate</span
+        ></label
+      >
+    </div>
+  </form>
+</main>
