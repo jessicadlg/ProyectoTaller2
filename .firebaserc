@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tallerweb2-1f7fb"
+  },
+  "targets": {
+    "tallerweb2-1f7fb": {
+      "hosting": {
+        "proyecto-taller2": [
+          "tallerweb2-1f7fb"
+        ]
+      }
+    }
+  }
+}
