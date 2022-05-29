@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     console.log('form->', this.signupForm.value);
     const response =  await this.userService.addUser(this.signupForm.value)
     console.log(response);
-
+    this.signupForm.reset();
   }
 
   /*initForm(): FormGroup {

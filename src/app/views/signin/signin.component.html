@@ -3,18 +3,18 @@
     <h3 class="mb-3 fw-normal text-center">Iniciar sesión</h3>
     <div class="content">
       <div class="form-element form-stack">
-        <label for="usuario" class="form-label">Usuario</label>
+        <label for="email" class="form-label">Email</label>
         <input
           class="campo-entrada ms-2"
-          type="text"
-          name="usuario"
-          formControlName="usuario"
+          type="email"
+          name="email"
+          formControlName="email"
         />
         <div
-          *ngIf="signinForm.get('usuario')?.touched && signinForm.get('usuario')?.errors?.['required']"
+          *ngIf="signinForm.get('email')?.touched && signinForm.get('email')?.errors?.['required']"
           class="alert alert-danger"
         >
-          El usuario es requerido
+          El email es requerido
         </div>
       </div>
       <div class="form-element form-stack">
@@ -43,7 +43,7 @@
         >Aun no tenes usuario?
         <span
           class="text-decoration-underline pointer text-primary"
-          (click)="irARegistro()"
+         
           >Registrate</span
         ></label
       >
