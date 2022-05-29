@@ -1,0 +1,21 @@
+
+.empresa-footer,.datos{
+    color: #fff;
+}
+
+footer .redes-sociales a {
+	display: block;
+	width: 60px;
+	height: 60px;
+	color:#fff;
+	text-align: center;
+	transition: .3s ease all;
+} 
+
+footer .redes-sociales a i {
+	font-size: 20px;
+}
+footer .redes-sociales a i:hover {
+    color: rgb(10, 9, 9);
+} 
+
