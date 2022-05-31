@@ -6,10 +6,10 @@ import { SigninComponent } from "src/app/views/signin/signin.component";
 import { SignupComponent } from "src/app/views/signup/signup.component";
 
 export const appRoutes: Routes = [
-    { path: '', component: BannerComponent },
+    { path: '', component: HomeComponent },
     { path: 'signin', component: SigninComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'home', component: HomeComponent },
+    { path: 'banner', component: BannerComponent },
     { path: 'productos', component: ProductosComponent },
 
  { path: '**', component: HomeComponent },
