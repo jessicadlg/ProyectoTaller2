@@ -4,6 +4,7 @@ import { ProductosComponent } from "src/app/components/productos/productos.compo
 import { HomeComponent } from "src/app/views/home/home.component";
 import { SigninComponent } from "src/app/views/signin/signin.component";
 import { SignupComponent } from "src/app/views/signup/signup.component";
+import { CarritoComponent } from '../app/components/carrito/carrito.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,6 +12,7 @@ export const appRoutes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'banner', component: BannerComponent },
     { path: 'productos', component: ProductosComponent },
+    { path: 'carrito', component: CarritoComponent },
 
  { path: '**', component: HomeComponent },
 

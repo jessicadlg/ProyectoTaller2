@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductosComponent } from './components/productos/productos.component';
     HomeComponent,
     FooterComponent,
     BannerComponent,
-    ProductosComponent
+    ProductosComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
