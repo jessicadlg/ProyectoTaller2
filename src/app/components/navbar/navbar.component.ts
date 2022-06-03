@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
  
+  changeText:boolean = false;
+
+
   constructor(protected router: Router) {}
 
   ngOnInit(): void {}

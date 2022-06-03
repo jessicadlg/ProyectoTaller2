@@ -1,0 +1,81 @@
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-9 animate__animated animate__backInLeft">
+            <h5>Sus productos</h5>
+            <table class="table table-responsive-xs table-hover table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Descuento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of carrito; let i = index">
+                        <td class="col-1"><img src="{{p.imagen}}" alt="" class="rounded img-thumbnail img-fluid"></td>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.precioWithDiscount}}</td>
+                        <td>{{p.descuento}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col animate__animated animate__bounceInUp">
+                    <h1>¡Confirma tu compra!</h1>
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">¡Ya casi lo tenes!</div>
+                        <div class="card-body text-primary">
+                          <h5 class="card-title">Cantidad de productos: {{carrito.length}}</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+        
+                    </div>
+                    <div class="card border-primary mb-3">
+                        <div class="card-body text-primary">
+                          <h5 class="card-title">Example</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card border-primary mb-3">
+                        <div class="card-body text-primary">
+                          <h5 class="card-title">Total a pagar {{carrito.length}}</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    <button type="submit" class="btn btn-success btn-block">Realizar compra</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-2 offset-1 m-auto animate__animated animate__backInRight">
+            <h5 class="">Tambien te puede interesar:</h5>
+            <div *ngFor="let p of carrito; let i = index" class="col m-0 p-0">
+                <div class="card-group animate__animated animate__flipInX">
+                    <div class="card">
+                        <img src="https://www.catycan.com/78863-home_default/pouch-pro-plan-wet-cat-kitten-x-85-grs.jpg"
+                            alt="" class="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{p.nombre}}</h5>
+                            <h5 class="cart-text d-inline text-danger">{{p.precioWithDiscount}}
+                                <h5 class="d-inline tachado text-dark">{{p.precioOriginal}} </h5>
+                                <h6 class="d-inline text-success">%{{p.descuento}} Off</h6>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+</div>
