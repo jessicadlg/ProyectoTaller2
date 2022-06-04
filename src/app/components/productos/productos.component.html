@@ -1,1 +1,124 @@
-<p>productos works!</p>
+<div class="container">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-4">
+            <h1 class="mb-5">Filtros</h1>
+            <h6>Edad</h6>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Cachorros
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Adultos
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Mayores
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <h6>Precio</h6>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Hasta $2000
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> $2000 a $8000
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Más de $8000
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <h6>Peso</h6>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Menos de 3Kg
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Entre 3Kg y 8Kg
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" name="kit" id=""> Más de 8Kg
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <h1 class="mb-5">Productos</h1>
+            <div class="row m-0 p-0">
+                <div *ngFor="let p of productos; let i = index" class="col-4 m-0 p-0">
+                    <div class="card-group animate__animated animate__flipInX">
+                        <div class="card">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+                                alt="" class="">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size:22px">{{p.nombre}}</h5>
+                                <h4 class="cart-text d-inline text-dark">${{p.precioWithDiscount}}
+                                    <h4 class="d-inline tachado text-secondary" style="font-size:15px">${{p.precioOriginal}} </h4>
+                                    <h4 class="mx-2 d-inline text-success" style="font-size:18px">{{p.descuento}}% Off</h4>
+                                </h4>
+                            </div>
+                            <div class= "m-auto">
+                                <button class="btn mb-3" style="background-color:#be5301; color: #FFFFFF" type="button">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div *ngIf="carrito.length > 0; else elseCondicion">
+                        <table class="table table-responsive-xs table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Descuento</th>
+                                    <th scope="col">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let p of carrito; let i = index">
+                                    <td class="col-1"><img src="{{p.imagen}}" alt="" class="rounded img-thumbnail img-fluid"></td>
+                                    <td>{{p.nombre}}</td>
+                                    <td>{{p.precioWithDiscount}}</td>
+                                    <td>{{p.descuento}}</td>
+                                    <td> <button type="button" class="close" style="background-color:rgb(204, 0, 0); border:none; color:#FFFFFF" data-dismiss="modal">&times;</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ng-template #elseCondicion>
+                        <p>No tiene productos agregado al carrito actualmente</p>
+                    </ng-template>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" (click)="carritoPage()" [disabled]="carrito.length <= 0"
+                        class="btn" style="background-color:#be5301; color: #FFFFFF">Confirmar compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

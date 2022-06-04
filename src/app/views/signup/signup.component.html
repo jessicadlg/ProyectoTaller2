@@ -1,5 +1,5 @@
-<div class="content">
-  <h1 class="h3 mb-3 text-center">Formulario de Registro</h1>
+<div class="content my-4">
+  <h2 class="mb-3 fw-normal text-center">Registro</h2>
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <div class="form-element form-stack mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
@@ -65,52 +65,40 @@
       </div>
     </div>
     <div class="form-element form-stack mb-3">
-      <label for="password" class="form-label">Password:</label>
+      <label for="password" class="form-label">Contraseña</label>
       <input
         formControlName="password"
         name="password"
         class="campo-entrada"
         type="password"
       />
-      <div
-        *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
-        class="alert alert-danger"
-      >
-        El password es requerido.
-      </div>
-      <div
-        *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minLength']"
-        class="alert alert-danger"
-      >
-        El password debe tener un minimo de
-        {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}}
-        caracteres.
-      </div>
+      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
+      class="alert alert-danger">La contraseña es requerida.</div>
+      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minLength']"
+      class="alert alert-danger">La contraseña debe tener un minimo de 
+      {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}} caracteres.</div>
     </div>
-    <div class="form-element form-stack mb-3">
-      <label for="repassword" class="form-label">Re password:</label>
+     <div class="form-element form-stack mb-3">
+      <label for="repassword" class="form-label">Repetir contraseña:</label>
       <input
         formControlName="password"
         name="password"
         class="campo-entrada"
         type="password"
       />
-      <div
-        *ngIf="signupForm.get('repassword')?.touched && signupForm.get('repassword')?.errors?.['required']"
-        class="alert alert-danger"
-      >
-        El repassword es requerido
-      </div>
-    </div>
+      <div *ngIf="signupForm.get('repassword')?.touched && signupForm.get('repassword')?.errors?.['required']"
+      class="alert alert-danger">La contraseña es requerida</div>
+    </div> 
     <div class="my-3">
-      <button
-        class="w-100 btn btn-primary"
-        type="submit"
-        [disabled]="signupForm.invalid"
-      >
-        Registrarse
-      </button>
-      <a class="btn btn-danger w-100 my-3" href="/signin">cancelar</a>
+      <!--<button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button> -->
+      <input
+      class="w-100 btn btn-lg"
+      style="background-color:#d26410; color: #FFFFFF"
+      type="submit"
+      value="Crear Cuenta"
+    />
+      <a class="btn w-100 my-3" style="color: #2b2b2b; font-weight: 400;" href="/signin">Cancelar</a>
+  
     </div>
   </form>
 </div>

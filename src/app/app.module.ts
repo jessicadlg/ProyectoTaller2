@@ -13,6 +13,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { CarritoComponent } from './components/carrito/carrito.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     FooterComponent,
     BannerComponent,
     ProductosComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

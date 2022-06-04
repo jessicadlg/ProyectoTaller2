@@ -1,0 +1,20 @@
+.promos {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.promos img{
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #143F6B;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 20px;
+}
