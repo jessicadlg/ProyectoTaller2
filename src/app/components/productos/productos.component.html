@@ -1,13 +1,4 @@
 <div class="container">
-    <!--<div class="row">
-        <div class="col">
-            <div class="card border-white text-white">
-                <img src="https://st.depositphotos.com/1765308/1274/i/600/depositphotos_12743043-stock-photo-three-dogs.jpg"
-                    class=" img-fluid mx-auto d-block" alt="">
-
-            </div>
-        </div>
-    </div>-->
     <br>
     <br>
     <div class="row">
@@ -84,34 +75,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="card border border animate__animated animate__flipInX">
-                        <div class="row m-0 p-0">
-                            <div class="col-4 m-0 p-0">
-                                <img src="https://www.catycan.com/78863-home_default/pouch-pro-plan-wet-cat-kitten-x-85-grs.jpg"
-                                    alt="" class="">
-                            </div>
-                            <div class="row m-0 p-0">
-                                <div class="col m-0 p-0">
-                                    <h3 class="card-title text-center text-dark text-italic">{{p.nombre}}</h3>
-                                </div>
-                            </div>
-                            <div class="row m-0 p-0">
-                                <div class="col text-center">
-                                    <h4 class="d-inline text-danger">{{p.precioWithDiscount}}
-                                        <h4 class="d-inline tachado text-dark">{{p.precioOriginal}} </h4>
-                                        <h4 class="d-inline text-success">%{{p.descuento}} Off</h4>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="row m-0 p-0 mt-3">
-                                <div class="col m-0 p-0">
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-primary" type="button">Agregar al carrito</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <br>
                 </div>
             </div>
@@ -138,7 +101,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let p of carrito; let i = index">
-                                    <td>{{p.imagen}}</td>
+                                    <td class="col-1"><img src="{{p.imagen}}" alt="" class="rounded img-thumbnail img-fluid"></td>
                                     <td>{{p.nombre}}</td>
                                     <td>{{p.precioWithDiscount}}</td>
                                     <td>{{p.descuento}}</td>

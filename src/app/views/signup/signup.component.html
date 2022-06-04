@@ -59,9 +59,9 @@
         type="password"
       />
       <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
-      class="alert alert-danger">El password es requerido.</div>
+      class="alert alert-danger">La contraseña es requerida.</div>
       <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minLength']"
-      class="alert alert-danger">El password debe tener un minimo de 
+      class="alert alert-danger">La contraseña debe tener un minimo de 
       {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}} caracteres.</div>
     </div>
      <div class="form-element form-stack mb-3">
@@ -73,7 +73,7 @@
         type="password"
       />
       <div *ngIf="signupForm.get('repassword')?.touched && signupForm.get('repassword')?.errors?.['required']"
-      class="alert alert-danger">El repassword es requerido</div>
+      class="alert alert-danger">La contraseña es requerida</div>
     </div> 
     <div class="my-3">
       <!--<button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button> -->
