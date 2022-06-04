@@ -14,7 +14,7 @@
         <label for="password" class="form-label">Contraseña</label>
         <input class="campo-entrada ms-2" type="password" name="password" formControlName="password" />
         <div *ngIf="signinForm.get('password')?.touched && signinForm.get('password')?.errors?.['required']"
-        class="alert alert-danger">El password es requerido</div>
+        class="alert alert-danger">La contraseña es requerida</div>
       </div>
       <div class="form-element form-submit">
         <input

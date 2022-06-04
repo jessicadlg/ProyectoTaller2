@@ -58,23 +58,25 @@ export class ProductosComponent implements OnInit {
       precioOriginal: '1000',
       descuento: '50',
       precioWithDiscount: '500',
-      imagen: '',
+      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
     },
     {
       nombre: 'Alimento Sieger Super Premium',
       precioOriginal: '2000',
       descuento: '25',
       precioWithDiscount: '1500',
-      imagen: '',
+      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
     },
     {
       nombre: 'Alimento Iams Proactive Health',
       precioOriginal: '3000',
       descuento: '75',
       precioWithDiscount: '2250',
-      imagen: '',
+      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
     },
   ];
+
+  // carrito: Array<any> = [];
 
   constructor(protected router: Router) {}
 
