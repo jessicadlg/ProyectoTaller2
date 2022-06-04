@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/services/users.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,36 +9,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  isEmail = /\S+@\S+\.\S+/;
+
+  signinForm!: FormGroup;
+
+  //isEmail = /\S+@\S+\.\S+/;
   // para validar los campos falta renderizar mensajes x error de datos, si funciona el msj de campo vacio requerido
-  signinForm = this.fb.group({
-    usuario: ['', [Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
-  ]],
-    password: [
+  /*signinForm = this.fb.group({
+    usuario: [
       '',
       [
         Validators.required,
-        Validators.minLength(8),
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
       ],
     ],
-  });
+    password: ['', [Validators.required, Validators.minLength(8)]],
+  });*/
 
-  constructor( protected router: Router,private  fb: FormBuilder) {}
+  //constructor(protected router: Router, private fb: FormBuilder) {}
 
-  ngOnInit(): void {
+  constructor(private userService: UsersService) {
+    this.signinForm = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    })
+  }
+  ngOnInit(): void {}
+
+   onSubmit(){
+    console.log('form->', this.signinForm.value);
+    this.userService.getUsers().subscribe(users => {
+     console.log("Usuarios en firebase: ")
+     console.log(users)
+    })
+    console.log ("Email del formulario: " + this.signinForm.value.email)
+    this.signinForm.reset();
   }
 
-  
-  onSubmit(): void {
-    if(this.signinForm.valid){
-         console.log('form->', this.signinForm.value);
-    }else{
-      console.log('no valido');
-    }
-  }
-
-  irARegistro() {
+  /*irARegistro() {
     this.router.navigate(['/signup']);
-  }
-  
+  }*/
 }

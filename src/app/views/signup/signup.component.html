@@ -1,54 +1,68 @@
 <div class="content my-4">
   <h2 class="mb-3 fw-normal text-center">Registro</h2>
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-   <div class="form-element form-stack mb-3">
+    <div class="form-element form-stack mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input
-        name="nombre"
+        name="name"
         class="campo-entrada"
         type="text"
-        formControlName="nombre"
-     
+        formControlName="name"
       />
-      <div *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['required']"
-      class="alert alert-danger">El nombre es requerido</div>
+      <div
+        *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['required']"
+        class="alert alert-danger"
+      >
+        El nombre es requerido
+      </div>
       <!-- <div *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minLength']"
       class="alert alert-danger">El nombre debe tener un minimo de 
       {{signupForm.get('nombre')?.errors?.['minLength']?.requiredLength}} caracteres.</div> -->
     </div>
-      <div class="form-element form-stack mb-3">
+    <div class="form-element form-stack mb-3">
       <label for="apellido" class="form-label">Apellido:</label>
       <input
-        formControlName="apellido"
-        name="apellido"
+        formControlName="surname"
+        name="surname"
         class="campo-entrada"
         type="text"
-        
       />
-      <div *ngIf="signupForm.get('apellido')?.touched && signupForm.get('apellido')?.errors?.['required']"
-      class="alert alert-danger">El apellido es requerido</div>
+      <div
+        *ngIf="signupForm.get('apellido')?.touched && signupForm.get('apellido')?.errors?.['required']"
+        class="alert alert-danger"
+      >
+        El apellido es requerido
+      </div>
     </div>
     <div class="form-element form-stack mb-3">
       <label for="direccion" class="form-label">Dirección:</label>
       <input
-        formControlName="direccion"
-        name="direccion"
+        formControlName="direction"
+        name="direction"
         class="campo-entrada"
         type="text"
       />
-      <div *ngIf="signupForm.get('direccion')?.touched && signupForm.get('direccion')?.errors?.['required']"
-      class="alert alert-danger">La direccion es requerida</div>
+      <div
+        *ngIf="signupForm.get('direccion')?.touched && signupForm.get('direccion')?.errors?.['required']"
+        class="alert alert-danger"
+      >
+        La direccion es requerida
+      </div>
     </div>
     <div class="form-element form-stack mb-3">
       <label for="email" class="form-label">Email:</label>
-      <input 
-      formControlName="email"
-      name="email"
-       class="campo-entrada"
+      <input
+        formControlName="email"
+        name="email"
+        class="campo-entrada"
         type="text"
-          />
-         <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
-         class="alert alert-danger">El email es requerido</div>
+      />
+      <div
+        *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
+        class="alert alert-danger"
+      >
+        El email es requerido
+      </div>
     </div>
     <div class="form-element form-stack mb-3">
       <label for="password" class="form-label">Contraseña</label>
@@ -67,8 +81,8 @@
      <div class="form-element form-stack mb-3">
       <label for="repassword" class="form-label">Repetir contraseña:</label>
       <input
-        formControlName="repassword"
-        name="repassword"
+        formControlName="password"
+        name="password"
         class="campo-entrada"
         type="password"
       />
