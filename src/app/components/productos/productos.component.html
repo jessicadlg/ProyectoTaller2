@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <!--<div class="row">
         <div class="col">
             <div class="card border-white text-white">
                 <img src="https://st.depositphotos.com/1765308/1274/i/600/depositphotos_12743043-stock-photo-three-dogs.jpg"
@@ -7,106 +7,80 @@
 
             </div>
         </div>
-    </div>
+    </div>-->
     <br>
     <br>
     <div class="row">
         <div class="col-4">
-            <h1>Filtros</h1>
-            <h5>Edad</h5>
+            <h1 class="mb-5">Filtros</h1>
+            <h6>Edad</h6>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Cachorros
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Adultos
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Mayores
                 </div>
             </div>
             <div class="dropdown-divider"></div>
-            <h5>Peso</h5>
+            <h6>Precio</h6>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Hasta $2000
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> $2000 a $8000
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Más de $8000
                 </div>
             </div>
             <div class="dropdown-divider"></div>
-            <h5>Consideraciones</h5>
+            <h6>Peso</h6>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Menos de 3Kg
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Entre 3Kg y 8Kg
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
+                    <input type="radio" name="kit" id=""> Más de 8Kg
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="radio" name="kit" id="">Kitten
-                </div>
-            </div>
-            <div class="dropdown-divider"></div>
         </div>
         <div class="col-8">
-            <h1>Productos</h1>
+            <h1 class="mb-5">Productos</h1>
             <div class="row m-0 p-0">
                 <div *ngFor="let p of productos; let i = index" class="col-4 m-0 p-0">
                     <div class="card-group animate__animated animate__flipInX">
                         <div class="card">
-                            <img src="https://www.catycan.com/78863-home_default/pouch-pro-plan-wet-cat-kitten-x-85-grs.jpg"
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
                                 alt="" class="">
                             <div class="card-body">
-                                <h5 class="card-title">{{p.nombre}}</h5>
-                                <h4 class="cart-text d-inline text-danger">{{p.precioWithDiscount}}
-                                    <h4 class="d-inline tachado text-dark">{{p.precioOriginal}} </h4>
-                                    <h4 class="d-inline text-success">%{{p.descuento}} Off</h4>
+                                <h5 class="card-title" style="font-size:22px">{{p.nombre}}</h5>
+                                <h4 class="cart-text d-inline text-dark">${{p.precioWithDiscount}}
+                                    <h4 class="d-inline tachado text-secondary" style="font-size:15px">${{p.precioOriginal}} </h4>
+                                    <h4 class="mx-2 d-inline text-success" style="font-size:18px">{{p.descuento}}% Off</h4>
                                 </h4>
                             </div>
-                            <div class="card-footer m-auto">
-                                <button class="btn btn-primary btn-block" type="button">Agregar al carrito</button>
+                            <div class= "m-auto">
+                                <button class="btn mb-3" style="background-color:#be5301; color: #FFFFFF" type="button">Agregar al carrito</button>
                             </div>
                         </div>
                     </div>
@@ -168,7 +142,7 @@
                                     <td>{{p.nombre}}</td>
                                     <td>{{p.precioWithDiscount}}</td>
                                     <td>{{p.descuento}}</td>
-                                    <td> <button type="button" class="close" data-dismiss="modal">&times;</button></td>
+                                    <td> <button type="button" class="close" style="background-color:rgb(204, 0, 0); border:none; color:#FFFFFF" data-dismiss="modal">&times;</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -178,9 +152,8 @@
                     </ng-template>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" (click)="carritoPage()" [disabled]="carrito.length <= 0"
-                        class="btn btn-primary">Confirmar compra</button>
+                        class="btn" style="background-color:#be5301; color: #FFFFFF">Confirmar compra</button>
                 </div>
             </div>
         </div>

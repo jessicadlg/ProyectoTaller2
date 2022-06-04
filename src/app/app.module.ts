@@ -11,9 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +29,6 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],

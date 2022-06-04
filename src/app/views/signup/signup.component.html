@@ -51,7 +51,7 @@
          class="alert alert-danger">El email es requerido</div>
     </div>
     <div class="form-element form-stack mb-3">
-      <label for="password" class="form-label">Password:</label>
+      <label for="password" class="form-label">Contraseña</label>
       <input
         formControlName="password"
         name="password"
@@ -65,7 +65,7 @@
       {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}} caracteres.</div>
     </div>
      <div class="form-element form-stack mb-3">
-      <label for="repassword" class="form-label">Re password:</label>
+      <label for="repassword" class="form-label">Repetir contraseña:</label>
       <input
         formControlName="repassword"
         name="repassword"
@@ -83,7 +83,8 @@
       type="submit"
       value="Crear Cuenta"
     />
-      <a class="btn w-100 my-3" style="color: #2b2b2b; font-weight: 600;" href="/signin">Cancelar</a>
+      <a class="btn w-100 my-3" style="color: #2b2b2b; font-weight: 400;" href="/signin">Cancelar</a>
+  
     </div>
   </form>
 </div>
