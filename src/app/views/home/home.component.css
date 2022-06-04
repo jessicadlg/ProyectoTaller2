@@ -1,2 +1,16 @@
+.promos {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 
-  
+.promos img{
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 20px;
+}

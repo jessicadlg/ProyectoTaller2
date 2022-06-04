@@ -1,5 +1,5 @@
-<div class="content">
-  <h1 class="h3 mb-3 text-center">Formulario de Registro</h1>
+<div class="content my-4">
+  <h2 class="mb-3 fw-normal text-center">Registro</h2>
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
    <div class="form-element form-stack mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
@@ -76,8 +76,14 @@
       class="alert alert-danger">El repassword es requerido</div>
     </div> 
     <div class="my-3">
-      <button class="w-100 btn btn-primary" type="submit" [disabled]="signupForm.invalid">Registrarse</button> 
-      <a class="btn btn-danger w-100 my-3" href="/signin">Cancelar</a>
+      <!--<button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button> -->
+      <input
+      class="w-100 btn btn-lg"
+      style="background-color:#d26410; color: #FFFFFF"
+      type="submit"
+      value="Crear Cuenta"
+    />
+      <a class="btn w-100 my-3" style="color: #2b2b2b; font-weight: 600;" href="/signin">Cancelar</a>
     </div>
   </form>
 </div>
