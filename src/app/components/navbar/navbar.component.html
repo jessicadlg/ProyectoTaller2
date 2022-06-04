@@ -32,8 +32,10 @@
           <a class="nav-link" href="/productos">Productos</a>
         </li>
       </ul>
-      <button class="btn btn-outline-dark" type="submit">
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i> :
+      <span class="text-danger animate__animated animate__bounceInRight" *ngIf="changeText">Ver carrito</span>
+      <button (mouseover)="changeText=true" (mouseout)="changeText=false" id="cart" type="button"
+        class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa fa-shopping-cart" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#myModal"></i>
       </button>
     </div>
   </div>
