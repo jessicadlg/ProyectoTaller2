@@ -9,42 +9,42 @@ import { Router } from '@angular/router';
 export class ProductosComponent implements OnInit {
   productos: Array<any> = [
     {
-      nombre: 'Producto 1',
+      nombre: 'Pro Plan OptiRenal Sterilized ',
       precioOriginal: '200',
       descuento: '50',
       precioWithDiscount: '100',
       imagen: '',
     },
     {
-      nombre: 'Producto 2',
+      nombre: 'Excellent Veterinary Diets',
       precioOriginal: '400',
       descuento: '25',
       precioWithDiscount: '300',
       imagen: '',
     },
     {
-      nombre: 'Producto 3',
+      nombre: 'Alimento Dog Chow Salud Visible ',
       precioOriginal: '500',
       descuento: '75',
       precioWithDiscount: '125',
       imagen: '',
     },
     {
-      nombre: 'Producto 4',
+      nombre: 'Alimento Dogui Recetas Caseras',
       precioOriginal: '1000',
       descuento: '50',
       precioWithDiscount: '500',
       imagen: '',
     },
     {
-      nombre: 'Producto 5',
+      nombre: 'Alimento Sieger Super Premium',
       precioOriginal: '2000',
       descuento: '25',
       precioWithDiscount: '1500',
       imagen: '',
     },
     {
-      nombre: 'Producto 6',
+      nombre: 'Alimento Iams Proactive Health',
       precioOriginal: '3000',
       descuento: '75',
       precioWithDiscount: '2250',
@@ -54,24 +54,24 @@ export class ProductosComponent implements OnInit {
 
   carrito: Array<any> = [
     {
-      nombre: 'Producto 1',
-      precioOriginal: '200',
+      nombre: 'Alimento Dogui Recetas Caseras',
+      precioOriginal: '1000',
       descuento: '50',
-      precioWithDiscount: '100',
+      precioWithDiscount: '500',
       imagen: '',
     },
     {
-      nombre: 'Producto 2',
-      precioOriginal: '400',
+      nombre: 'Alimento Sieger Super Premium',
+      precioOriginal: '2000',
       descuento: '25',
-      precioWithDiscount: '300',
+      precioWithDiscount: '1500',
       imagen: '',
     },
     {
-      nombre: 'Producto 3',
-      precioOriginal: '500',
+      nombre: 'Alimento Iams Proactive Health',
+      precioOriginal: '3000',
       descuento: '75',
-      precioWithDiscount: '125',
+      precioWithDiscount: '2250',
       imagen: '',
     },
   ];

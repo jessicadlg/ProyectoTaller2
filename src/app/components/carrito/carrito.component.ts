@@ -9,25 +9,25 @@ export class CarritoComponent implements OnInit {
 
   carrito: Array<any> = [
     {
-      nombre: 'Producto 1',
+      nombre: 'Alimento Old Prince Proteínas',
       precioOriginal: '200',
       descuento: '50',
       precioWithDiscount: '100',
-      imagen: 'https://www.catycan.com/70504-home_default/pouch-pro-plan-wet-cat-adult-pollo-x-85-grs.jpg',
+      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
     },
     {
-      nombre: 'Producto 2',
+      nombre: 'Alimento Old Prince Proteínas',
       precioOriginal: '400',
       descuento: '25',
       precioWithDiscount: '300',
-      imagen: 'https://www.catycan.com/70504-home_default/pouch-pro-plan-wet-cat-adult-pollo-x-85-grs.jpg',
+      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
     },
     {
-      nombre: 'Producto 3',
+      nombre: 'Alimento Old Prince Proteínas',
       precioOriginal: '500',
       descuento: '75',
       precioWithDiscount: '125',
-      imagen: 'https://www.catycan.com/70504-home_default/pouch-pro-plan-wet-cat-adult-pollo-x-85-grs.jpg',
+      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
     },
   ];
 

@@ -1,7 +1,7 @@
 
 <main class="my-4">
   <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-    <h3 class="mb-3 fw-normal text-center">Iniciar sesión</h3>
+    <h2 class="mb-3 fw-normal text-center">Iniciar Sesión</h2>
     <div class="content">
       <div class="form-element form-stack">
         <label for="usuario" class="form-label">Usuario</label>
@@ -18,18 +18,15 @@
       </div>
       <div class="form-element form-submit">
         <input
-          class="w-100 btn btn-lg btn-primary"
+          class="w-100 btn btn-lg"
+          style="background-color:#d26410; color: #FFFFFF"
           type="submit"
           value="Ingresar"
         />
       </div>
-      <label class="mt-4"
-        >Aun no tenes usuario?
-        <span
-          class="text-decoration-underline pointer text-primary"
-          (click)="irARegistro()"
-          >Registrate</span
-        ></label
+      <label class="mt-4 text-center"
+        >¿Aún no tienes una cuenta?
+        <a class="w-100" style="color:#be5301; font-weight: 600; text-decoration: none;" href="/signup">Registrate</a></label
       >
     </div>
   </form>
