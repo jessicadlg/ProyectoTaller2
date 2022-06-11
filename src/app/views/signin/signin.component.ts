@@ -36,13 +36,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
    onSubmit(){
-    console.log('form->', this.signinForm.value);
-    this.userService.getUsers().subscribe(users => {
-     console.log("Usuarios en firebase: ")
-     console.log(users)
-    })
-    console.log ("Email del formulario: " + this.signinForm.value.email)
-    this.signinForm.reset();
+  
   }
 
   /*irARegistro() {
