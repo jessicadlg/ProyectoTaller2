@@ -1,6 +1,6 @@
 <div class="content my-4">
   <h2 class="mb-3 fw-normal text-center">Registro</h2>
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
     <div class="form-element form-stack mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input
@@ -15,9 +15,9 @@
       >
         El nombre es requerido
       </div>
-      <!-- <div *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minLength']"
+     <div *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minLength']"
       class="alert alert-danger">El nombre debe tener un minimo de 
-      {{signupForm.get('nombre')?.errors?.['minLength']?.requiredLength}} caracteres.</div> -->
+      {{signupForm.get('nombre')?.errors?.['minLength']?.requiredLength}} caracteres.</div>
     </div>
     <div class="form-element form-stack mb-3">
       <label for="apellido" class="form-label">Apellido:</label>
@@ -90,7 +90,7 @@
       class="alert alert-danger">La contraseña es requerida</div>
     </div> 
     <div class="my-3">
-      <!--<button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button> -->
+      <button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button>
       <input
       class="w-100 btn btn-lg"
       style="background-color:#d26410; color: #FFFFFF"
