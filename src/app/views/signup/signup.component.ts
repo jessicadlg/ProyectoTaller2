@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from 'src/services/users.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,21 +11,25 @@ export class SignupComponent implements OnInit {
   // para no inicializar se le coloca el !
   signupForm!: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(private userService: UsersService) {
+    this.signupForm = new FormGroup({
+      name: new FormControl(),
+      surname: new FormControl(),
+      direction: new FormControl(),
+      email: new FormControl(),
+      password: new FormControl()
+    })
+  }
 
   ngOnInit(): void {
-    this.signupForm = this.initForm();
+    //this.signupForm = this.initForm();
   }
 
-  onSubmit(): void {
-    if (this.signupForm.valid) {
-      console.log('form->', this.signupForm.value);
-    } else {
-      console.log('no valido');
-    }
+  async onSubmit(){
+
   }
 
-  initForm(): FormGroup {
+  /*initForm(): FormGroup {
     return this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', Validators.required],
@@ -33,5 +38,5 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8)]],
       repassword: ['', Validators.required],
     });
-  }
+  }*/
 }
