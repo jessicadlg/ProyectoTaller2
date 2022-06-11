@@ -23,8 +23,8 @@
               />
             </td>
             <td>{{ p.nombre }}</td>
-            <td>{{ p.precioWithDiscount }}</td>
-            <td>{{ p.descuento }}</td>
+            <td>${{ p.precioWithDiscount }}</td>
+            <td>{{ p.descuento }}%</td>
           </tr>
         </tbody>
       </table>
@@ -64,8 +64,8 @@
             <div class="card-body">
               <h5 class="card-title">Su dirección de entrega</h5>
               <p class="card-text">
-                ESTRADA 01904 Piso Dpto. 1755 RAFAEL CASTILLO Provincia Buenos
-                Aires Argentina
+                ESTRADA 01904 Piso Dpto. 1755 RAFAEL CASTILLO , Provincia Buenos
+                Aires , Argentina
               </p>
               <button type="submit" class="btn btn-success btn-block w-100">
                 Actualizar datos
@@ -105,7 +105,6 @@
               </h4>
             </div>
             <div class="my-2">
-              <!--<button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button> -->
               <input
                 class="w-100 btn btn-lg"
                 style="background-color: #d26410; color: #ffffff"
