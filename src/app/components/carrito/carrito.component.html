@@ -1,72 +1,122 @@
-<br>
-<br>
+<br />
+<br />
 <div class="container">
-    <div class="row">
-        <div class="col-9 animate__animated animate__backInLeft">
-            <h3 class="mb-3">Tus productos</h3>
-            <table class="table table-responsive-xs table-hover table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Descuento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let p of carrito; let i = index">
-                        <td class="col-1"><img src="{{p.imagen}}" alt="" class="rounded img-thumbnail img-fluid"></td>
-                        <td>{{p.nombre}}</td>
-                        <td>{{p.precioWithDiscount}}</td>
-                        <td>{{p.descuento}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col animate__animated animate__bounceInUp">
-                    <h1 class="mb-5 my-5">¡Confirmá tu compra!</h1>
-                    <div class="card mb-3">
-                        <div class="card-header">¡Ya casi lo tenes!</div>
-                        <div class="card-body">
-                          <h5 class="card-title">Cantidad de productos: {{carrito.length}}</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-        
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body ">
-                          <h5 class="card-title">Example</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body ">
-                          <h5 class="card-title">Total a pagar {{carrito.length}}</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block w-100">Confirmar compra</button>
-
-                </div>
+  <div class="row">
+    <div class="col-9 animate__animated animate__backInLeft">
+      <h3 class="mb-3">Tus productos</h3>
+      <table class="table table-responsive-xs table-hover table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descuento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of carrito; let i = index">
+            <td class="col-1">
+              <img
+                src="{{ p.imagen }}"
+                alt=""
+                class="rounded img-thumbnail img-fluid"
+              />
+            </td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.precioWithDiscount }}</td>
+            <td>{{ p.descuento }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col animate__animated animate__bounceInUp">
+          <h1 class="mb-5 my-5">¡Confirmá tu compra!</h1>
+          <div class="card mb-3">
+            <div class="card-header">¡Ya casi lo tenes!</div>
+            <div class="card-body">
+              <h5 class="card-title">Tipo de envío</h5>
+              <p class="card-text"></p>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio1"
+                  name="customRadio"
+                  class="custom-control-input"
+                />
+                <label class="custom-control-label" for="customRadio1">
+                  Envío a domicilio</label
+                >
+              </div>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio1"
+                  name="customRadio"
+                  class="custom-control-input"
+                />
+                <label class="custom-control-label" for="customRadio1"
+                  >Retira por el sucursal</label
+                >
+              </div>
             </div>
-        </div>
-        <div class="col-2 offset-1 m-auto animate__animated animate__backInRight">
-            <h5 class="mb-3">Tambien te puede interesar:</h5>
-            <div *ngFor="let p of carrito; let i = index" class="col m-0 p-0">
-                <div class="card-group animate__animated animate__flipInX">
-                    <div class="card">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
-                            alt="" class="">
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-size:18px">{{p.nombre}}</h5>
-                            <h4 class="cart-text d-inline text-dark">${{p.precioWithDiscount}}
-                                <h4 class="mx-2 d-inline text-success" style="font-size:18px">{{p.descuento}}% Off</h4>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <br>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Su dirección de entrega</h5>
+              <p class="card-text">
+                ESTRADA 01904 Piso Dpto. 1755 RAFAEL CASTILLO Provincia Buenos
+                Aires Argentina
+              </p>
+              <button type="submit" class="btn btn-success btn-block w-100">
+                Actualizar datos
+              </button>
             </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ carrito.length }} Productos</h5>
+              <p class="card-text">Transporte: $200</p>
+              <p class="card-text">Total: $1200</p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-block w-100">
+            Confirmar compra
+          </button>
         </div>
+      </div>
     </div>
+    <div class="col-2 offset-1 m-auto animate__animated animate__backInRight">
+      <h5 class="mb-3">Tambien te puede interesar:</h5>
+      <div *ngFor="let p of carrito; let i = index" class="col m-0 p-0">
+        <div class="card-group animate__animated animate__flipInX">
+          <div class="card">
+            <img
+              src="https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+              alt=""
+              class=""
+            />
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 18px">{{ p.nombre }}</h5>
+              <h4 class="cart-text d-inline text-dark">
+                ${{ p.precioWithDiscount }}
+                <h4 class="mx-2 d-inline text-success" style="font-size: 18px">
+                  {{ p.descuento }}% Off
+                </h4>
+              </h4>
+            </div>
+            <div class="my-2">
+              <!--<button class="w-100 btn" style="background-color:#d26410; color: #FFFFFF" type="submit" [disabled]="signupForm.invalid">Registrarse</button> -->
+              <input
+                class="w-100 btn btn-lg"
+                style="background-color: #d26410; color: #ffffff"
+                type="submit"
+                value="Ver"
+              />
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
