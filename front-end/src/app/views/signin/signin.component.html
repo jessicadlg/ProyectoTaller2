@@ -1,0 +1,41 @@
+
+<main class="my-4">
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <h2 class="mb-3 fw-normal text-center">Iniciar Sesión</h2>
+    <div class="content">
+      <div class="form-element form-stack">
+        <label for="email" class="form-label">Email</label>
+        <input
+          class="campo-entrada ms-2"
+          type="email"
+          name="email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="signinForm.get('email')?.touched && signinForm.get('email')?.errors?.['required']"
+          class="alert alert-danger"
+        >
+          El email es requerido
+        </div>
+      </div>
+      <div class="form-element form-stack">
+        <label for="password" class="form-label">Contraseña</label>
+        <input class="campo-entrada ms-2" type="password" name="password" formControlName="password" />
+        <div *ngIf="signinForm.get('password')?.touched && signinForm.get('password')?.errors?.['required']"
+        class="alert alert-danger">La contraseña es requerida</div>
+      </div>
+      <div class="form-element form-submit">
+        <input
+          class="w-100 btn btn-lg"
+          style="background-color:#d26410; color: #FFFFFF"
+          type="submit"
+          value="Ingresar"
+        />
+      </div>
+      <label class="mt-4 text-center"
+        >¿Aún no tienes una cuenta?
+        <a class="w-100" style="color:#be5301; font-weight: 600; text-decoration: none;" href="/signup">Registrate</a></label
+      >
+    </div>
+  </form>
+</main>

@@ -1,0 +1,19 @@
+{
+  "name": "backend-proyecto-taller-web-2",
+  "version": "1.0.0",
+  "description": "Backend del tp de taller web 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Agustina Bellone, Escobar Joel, Delgado Jessica",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.0"
+  }
+}
