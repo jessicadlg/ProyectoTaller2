@@ -65,7 +65,7 @@
                   {{ p.nombre }}
                 </h5>
                 <h4 class="cart-text d-inline text-dark">
-                  ${{ p.precioWithDiscount }}
+                  ${{ p.precioConDescuento }}
                   <h4
                     class="d-inline tachado text-secondary"
                     style="font-size: 15px"
@@ -76,12 +76,12 @@
                     class="mx-2 d-inline text-success"
                     style="font-size: 18px"
                   >
-                    {{ p._id }}% Off
+                    {{ p.descuento }}% Off
                   </h4>
                 </h4>
               </div>
               <div class="m-auto">
-                <button class="btn mb-3" style="background-color: #be5301; color: #ffffff" type="button" (click)="setAgregarProductoAlCarrito(p._id)">
+                <button class="btn mb-3" style="background-color: #be5301; color: #ffffff" type="button" (click)="setAgregarProductoAlCarrito(p.id)">
                   Agregar al carrito
                 </button>
               </div>

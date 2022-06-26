@@ -1,20 +1,19 @@
 export class Producto {
-    _id?: number;
+    id?: number;
     nombre: string;
     categoria: string;
-    ubicacion: string;
-    imagen: string;
     precioOriginal: number;
-    precioWithDiscount : number;
+    precioConDescuento : number;
     descuento : number
+    imagen: string;
 
-    constructor(nombre: string, categoria: string, ubicacion: string, precioOriginal: number,precioWithDiscount:number,descuento:number,imagen:string ){
+    constructor(nombre: string, categoria: string, precioOriginal: number,precioConDescuento:number,descuento:number,imagen:string ){
         this.nombre = nombre;
         this.categoria = categoria;
-        this.ubicacion = ubicacion;
         this.precioOriginal = precioOriginal;
-        this.precioWithDiscount = precioWithDiscount;
+        this.precioConDescuento = precioConDescuento;
         this.descuento = descuento;
         this.imagen = imagen;
     }
+    
 }

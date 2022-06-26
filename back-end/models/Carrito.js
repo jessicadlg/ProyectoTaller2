@@ -1,12 +1,29 @@
-const mongoose = require('mongoose');
+const {Schema,model} = require("mongoose");
+const {v4: uudiv4} = require('uuid');
 
-const carritoSchema = mongoose.Schema({
+// const carritoSchema = Schema({
+//   listaProductos: { 
+//     type: Schema.Types.ObjectId,
+//     ref: "Producto" 
+//   }
+// });
 
-    listaProductos: [
-        { type: mongoose.Schema.ObjectId, ref: "Producto" }
-    ]
+class Carrito {
+
+  id = "";
+  idUsuario = "";
+  productos = [];
 
 
-})
+  constructor(){
+    this.productos = {}
+    this.id = uudiv4();
+    this.idUsuario = uudiv4();
+  }
 
-module.exports = mongoose.model('Carrito', carritoSchema);
+
+}
+
+
+// module.exports = model("Carrito", carritoSchema);
+module.exports = Carrito;

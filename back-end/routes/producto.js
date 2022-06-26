@@ -9,7 +9,7 @@ router.get('/', productoController.obtenerProductos);
 router.put('/:id', productoController.actualizarProducto);
 router.get('/:id', productoController.obtenerProducto);
 router.delete('/:id', productoController.eliminarProducto);
-router.get('/precio/:precio', productoController.buscarProductoPorPrecio);
+// router.get('/precio/:precio', productoController.buscarProductoPorPrecio);
 
 
 module.exports = router;

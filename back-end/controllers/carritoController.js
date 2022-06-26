@@ -1,106 +1,116 @@
-const Carrito = require('../models/Carrito');
-const Producto = require('../models/Producto');
+const Carrito = require("../models/Carrito");
+const Producto = require("../models/Producto");
 
+const {
+  guardarDBCarrito,
+  leerDBCarrito,
+  leerDBProducto,
+  guardarDBProducto,
+} = require("../database/guardarArchivo");
+const fs = require("fs");
 
-exports.eliminarCarrito = async (req, res) => {
-
-    try {
-        let carrito = await Carrito.findById(req.params.id);
-
-        if(!carrito) {
-            res.status(404).json({ msg: 'No existe el carrito' })
-        }
-       
-        await Carrito.findOneAndRemove({ _id: req.params.id })
-        res.json({ msg: 'Carrito eliminado con exito' });
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');
-    }
-
-}
-
-exports.obtenerCarrito = async (req, res) => {
-
-    try {
-        let carrito = await Carrito.findById(req.params.id);
-
-        if(!carrito) {
-            res.status(404).json({ msg: 'No existe el carrito' })
-        }
-       
-        res.json(carrito);
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');
-    }
-}
-
-exports.crearCarrito = async(req,res) =>{
-
-    try {
-        let carrito;
-        // Creamos nuestro carrito
-        carrito = new Carrito();
-
-        await carrito.save();
-        res.send(carrito);
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');
-    }
-
-}
+const carritoJson = "./database/carrito.json";
+const productosJson = "./database/productos.json";
 
 exports.obtenerCarritos = async (req, res) => {
+  try {
+    const info = fs.readFileSync(carritoJson, { encoding: "utf-8" });
+    const data = JSON.parse(info);
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
 
-    try {
-        const carritos = await Carrito.find();
-        res.json(carritos)
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');
-    }
+exports.crearCarrito = async (req, res) => {
+  try {
+    let carrito = new Carrito();
 
-}
+    const jsonData = leerDBCarrito();
+
+    jsonData.push(carrito);
+
+    guardarDBCarrito(carrito);
+
+    carrito = await transformar(carrito);
+    
+    res.json(JSON.stringify(carrito));
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
+
+exports.eliminarCarrito = async (req, res) => {
+  try {
+    const jsonData = leerDBCarrito();
+
+    jsonData.forEach(function (element, index, arr) {
+      if (element.id === req.params.id) {
+        jsonData.splice(index, 1);
+      }
+    });
+
+    guardarDBCarrito(jsonData);
+
+    res.json({ msg: "Carrito eliminado con exito" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
+
+exports.obtenerCarrito = async (req, res) => {
+  try {
+    const jsonData = leerDBCarrito();
+
+    const carrito = jsonData.find((carrito) => carrito.id === req.params.id);
+
+    res.json(carrito);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
 
 exports.agregarProducto = async (req, res) => {
+  try {
+    const { idProducto } = req.body;
 
-    try {
+    const jsonData = leerDBCarrito();
 
-        const { idProducto } = req.body;
-        // let carrito = await Carrito.findById(req.params.id);
-        let producto = await Producto.findById(idProducto);
-        // if(!carrito) {
-        //     res.status(404).json({ msg: 'No existe el carrito' })
-        // }
-        if(!producto) {
-            res.status(404).json({ msg: 'No existe el producto' })
-        }
+    let productJson = leerDBProducto();
 
-        // let producto = new Producto()
-        // producto.nombre = "Ketchupss";
-        // producto.categoria = "QUEHACEPA";
-        // producto.ubicacion = "nose";
-        // producto.precioOriginal = 2000;
-        // producto.precioWithDiscount = 10;
-        // producto.descuento = 2000;
+    const producto = await productJson.find((producto) => producto.id === idProducto);
 
-        let carrito = await Carrito.findByIdAndUpdate(req.params.id,{$push : {listaProductos : producto}});
+    // let producto = new Producto("Picante", "Aderezo", 1000, 500, 50, "qsy");
 
-        // Creamos nuestro producto
-        // carrito.listaProductos.push(producto);
+    const carrito = jsonData.find((carrito) => carrito.id === req.params.id);
+    carrito.productos.push(producto);
+    guardarDBCarrito(jsonData);
 
-        // producto = new Producto(req.body);
+    res.send(carrito);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
 
-        // await carrito.save();
-        res.send(carrito);
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');
+
+const transformar = async (carritoATransfomar)=>{
+
+    if(carritoATransfomar){
+        let productos = []
+
+        Object.keys(carritoATransfomar.productos).forEach((key) => {
+            const producto =  carritoATransfomar.productos[key];
+            productos.push(producto);
+          });
+      
+          carritoATransfomar.productos = productos;
+    
+          return carritoATransfomar;
     }
-}
+    return {msg: "Error"};
+};

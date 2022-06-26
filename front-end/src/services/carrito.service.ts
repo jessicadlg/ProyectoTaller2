@@ -13,8 +13,12 @@ export class CarritoService {
 
   constructor(private http: HttpClient) { }
 
-  crearCarrito(): Observable<any> {
+  obtenerCarritos(): Observable<any> {
     return this.http.get(this.url);
+  }
+
+  crearCarrito(): Observable<any> { 
+    return this.http.post(this.url,null);
   }
 
   eliminarCarrito(id: string): Observable<any> {

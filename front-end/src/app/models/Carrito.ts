@@ -1,10 +1,12 @@
 export class Carrito {
-    _id?: string;
-    listaProductos : [];
+    id?: string;
+    idUsuario:string;
+    productos : [];
 
-    constructor(_id:string, listaProductos:[]){
-        this._id = _id;
-        this.listaProductos = listaProductos;
+    constructor(id:string, idUsuario:string, productos:[]){
+        this.id = id;
+        this.idUsuario = idUsuario;
+        this.productos = productos;
     }
 
 }

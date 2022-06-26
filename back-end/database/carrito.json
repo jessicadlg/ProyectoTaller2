@@ -1,0 +1,86 @@
+[
+  {
+    "id": "4ab0f274-14d3-405e-9c18-2064d560bec8",
+    "idUsuario": "eedfd29b-e3fd-4436-8a97-6c2f17ab6ef1",
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+      },
+      {
+        "id": "",
+        "nombre": "Ketchup",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+      },
+      {
+        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "qsy"
+      },
+      {
+        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "qsy"
+      },
+      {
+        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "qsy"
+      },
+      {
+        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "qsy"
+      },
+      {
+        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "qsy"
+      }
+    ]
+  },
+  {
+    "id": "92cc380b-12b2-4470-a7b7-1dd2e4248a7b",
+    "idUsuario": "04991c7a-6f6d-4256-a047-a833dee7f1c2",
+    "productos": {}
+  },
+  {
+    "id": "41550369-57da-4289-9d2a-a7eb3feee0eb",
+    "idUsuario": "a402059e-578f-4b5d-bbea-f1bdadaf2607",
+    "productos": {}
+  },
+  {
+    "id": "209e2eb4-4e6b-4a73-b62d-80df8caf39e6",
+    "idUsuario": "e17b1c5e-b869-42cd-8ee7-c7f4b4dd3bbb",
+    "productos": {}
+  }
+]
