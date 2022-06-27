@@ -1,4 +1,3 @@
-const {Schema,model} = require("mongoose");
 const {v4: uudiv4} = require('uuid');
 
 // const carritoSchema = Schema({
@@ -21,9 +20,6 @@ class Carrito {
     this.idUsuario = uudiv4();
   }
 
-
 }
 
-
-// module.exports = model("Carrito", carritoSchema);
 module.exports = Carrito;
