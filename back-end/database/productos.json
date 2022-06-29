@@ -6,7 +6,8 @@
     "precioOriginal": 1000,
     "precioConDescuento": 500,
     "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp",
+    "cantidad": 1
   },
   {
     "id": "f5dbe501-0ed2-40a7-aecf-df304f157921",
@@ -15,33 +16,18 @@
     "precioOriginal": 1000,
     "precioConDescuento": 500,
     "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
-  },
-  {
-    "id": "83a69c3e-92aa-4496-ad74-21ffe5a47d86",
-    "nombre": "Mayonesa",
-    "categoria": "./database/carrito.json",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
-    "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
-  },
-  {
-    "id": "7b30bc18-1782-429c-a1ac-853bbe9252ea",
-    "nombre": "Mayonesa",
-    "categoria": "./database/carrito.json",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
-    "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp",
+    "cantidad": 1
+
   },
   {
     "id": "af28caa2-c8a0-48df-934f-3c73f8712225",
-    "nombre": "Mayonesa",
+    "nombre": "Ketchup",
     "categoria": "./database/carrito.json",
     "precioOriginal": 1000,
     "precioConDescuento": 500,
     "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp",
+    "cantidad": 1
   }
 ]

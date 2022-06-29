@@ -12,7 +12,7 @@ export const appRoutes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'banner', component: BannerComponent },
     { path: 'productos', component: ProductosComponent },
-    { path: 'carrito', component: CarritoComponent },
+    { path: 'carrito/:id', component: CarritoComponent },
 
  { path: '**', component: HomeComponent },
 

@@ -21,12 +21,12 @@ export class CarritoService {
     return this.http.post(this.url,null);
   }
 
-  eliminarCarrito(id: string): Observable<any> {
-    return this.http.delete(this.url + id);
+  eliminarCarrito(idCarrito:string,idProducto: string): Observable<any> {
+    return this.http.delete(this.url + "eliminar/" + idCarrito, {body : {idProducto}});
   }
 
-  agregarProducto(carrito: Carrito): Observable<any> {
-    return this.http.post(this.url, carrito);
+  agregarProducto(idCarrito:string,idProducto: string): Observable<any> {
+    return this.http.put(this.url + idCarrito , {idProducto});
   }
 
   obtenerCarrito(id: string): Observable<any> {
