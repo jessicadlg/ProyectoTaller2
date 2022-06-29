@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
  
   changeText:boolean = false;
+  s:string = "";
 
 
-  constructor(protected router: Router) {}
+  constructor(public router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.s.startsWith
+  }
 
   
 

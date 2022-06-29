@@ -29,11 +29,11 @@ const productosJson = "./database/productos.json";
 
 exports.crearProducto = async (req, res) => {
   try {
-    let {nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen} = req.body;
+    let {nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen,cantidad} = req.body;
     const jsonData = leerDBProducto();
     // producto = new Producto("Ketchup", "Aderezo", 1000, 500, 50, "qsy");
     // Creamos nuestro producto
-    let producto = new Producto(nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen);
+    let producto = new Producto(nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen,cantidad);
     jsonData.push(producto);
 
     guardarDBProducto(jsonData);
@@ -60,7 +60,7 @@ exports.obtenerProductos = async (req, res) => {
 
 exports.actualizarProducto = async (req, res) => {
   try {
-    const { nombre, categoria, ubicacion, precio } = req.body;
+    const {nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen,cantidad} = req.body;
     // let producto = await Producto.findById(req.params.id);
 
     const jsonData = leerDBProducto();
@@ -81,8 +81,11 @@ exports.actualizarProducto = async (req, res) => {
 
     producto.nombre = nombre;
     producto.categoria = categoria;
-    producto.ubicacion = ubicacion;
-    producto.precio = precio;
+    producto.precioOriginal = precioOriginal;
+    producto.precioConDescuento = precioConDescuento;
+    producto.descuento = descuento;
+    producto.imagen = imagen;
+    producto.cantidad = cantidad
 
     jsonData[indice] = producto;
     guardarDBProducto(jsonData);
@@ -99,11 +102,17 @@ exports.obtenerProducto = async (req, res) => {
         // let producto = await Producto.findById(req.params.id);
         const jsonData = leerDBProducto();
 
-        const producto = await jsonData.find((producto) => producto.id === req.params.id);
+        const productoEncontrado = await jsonData.find((producto) => producto.id === req.params.id);
 
-        if(!producto) {
+
+
+        if(!productoEncontrado) {
             res.status(404).json({ msg: 'No existe el producto' })
         }
+
+        const producto = transformar(productoEncontrado);
+        console.log(typeof productoEncontrado);
+        console.log(typeof producto);
 
         res.json(producto);
     } catch (error) {
@@ -139,3 +148,20 @@ exports.eliminarProducto = async (req, res) => {
     }
 
 }
+
+const transformar = async (productoATransformar)=>{
+
+  if(productoATransformar){
+      let productos = []
+
+      Object.keys(productoATransformar).forEach((key) => {
+          const producto =  productoATransformar[key];
+          productos.push(producto);
+        });
+
+        productoATransformar = productos;
+  
+        return productoATransformar;
+  }
+  return {msg: "Error"};
+};

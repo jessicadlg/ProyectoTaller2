@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Carrito } from 'src/app/models/Carrito';
+import { CarritoService } from 'src/services/carrito.service';
+import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-carrito',
@@ -6,42 +11,75 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrito.component.css'],
 })
 export class CarritoComponent implements OnInit {
+  total:number = 0;
+  carrito: Carrito = new Carrito(
+    '',
+    '',
+    []
+  );
 
-  carrito: Array<any> = [
-    {
-      nombre: 'Alimento Old Prince Proteínas',
-      precioOriginal: '200',
-      descuento: '50',
-      precioWithDiscount: '100',
-      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
-    },
-    {
-      nombre: 'Alimento Old Prince Proteínas',
-      precioOriginal: '400',
-      descuento: '25',
-      precioWithDiscount: '300',
-      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
-    },
-    {
-      nombre: 'Alimento Old Prince Proteínas',
-      precioOriginal: '500',
-      descuento: '75',
-      precioWithDiscount: '125',
-      imagen: 'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
-    },
-  ];
-
-  constructor() {}
+  constructor(private router: Router,private activatedRoute:ActivatedRoute, private carritoService: CarritoService,
+    private toastr: ToastrService
+    ) {
+  }
 
   ngOnInit(): void {
     let modal = document.querySelector('.modal-backdrop');
-    let body = document.querySelector("body");
+    let body = document.querySelector('body');
     if (modal) {
       let padre = modal.parentNode;
       padre?.removeChild(modal);
       body?.style.removeProperty('padding-right');
       body?.style.removeProperty('overflow');
     }
+      let {id} = this.activatedRoute.snapshot.params
+      this.carrito.id = id;
+      this.obtenerCarrito();
+  }
 
+  obtenerCarrito() {
+      this.carritoService.obtenerCarrito(this.carrito.id).subscribe(
+        (data) => {
+          console.log('busco el carrito');
+          let { id, idUsuario, productos } = data;
+          if(id){
+            this.carrito = new Carrito(id, idUsuario, productos);
+            this.carrito.productos.forEach((element,index,arra)=>{
+              console.log(typeof element.precioConDescuento);
+              this.total += element.precioConDescuento;
+            })
+          }else{
+            this.router.navigate(['/productos'], { queryParams: { error: true } });
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  eliminarProductoDelCarrito(idCarrito:string,idProducto:string){
+      this.carritoService.eliminarCarrito(idCarrito,idProducto).subscribe(
+        (data) => {
+          this.ngOnInit();
+          this.toastr.show('Se elimino el producto del carrito');
+          this.router.navigate(['/productos']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
+  agregarProductoAlCarrito(idProducto:string): void {
+      this.carritoService.agregarProducto(this.carrito.id,idProducto).subscribe(
+        (data) => {
+          this.ngOnInit();
+          this.toastr.success('Tu producto fue agregado al carrito','¡Excelente eleccion!',);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

@@ -12,7 +12,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

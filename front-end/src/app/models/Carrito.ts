@@ -1,9 +1,11 @@
-export class Carrito {
-    id?: string;
-    idUsuario:string;
-    productos : [];
+import { Producto } from "./producto";
 
-    constructor(id:string, idUsuario:string, productos:[]){
+export class Carrito {
+    id: string;
+    idUsuario:string;
+    productos:Array<Producto>;
+
+    constructor(id:string, idUsuario:string, productos:Array<Producto>){
         this.id = id;
         this.idUsuario = idUsuario;
         this.productos = productos;
