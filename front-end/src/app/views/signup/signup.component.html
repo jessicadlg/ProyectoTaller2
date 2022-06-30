@@ -1,13 +1,13 @@
 <div class="content my-4">
   <h2 class="mb-3 fw-normal text-center">Registro</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="signupForm">
     <div class="form-element form-stack mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input
         name="name"
         class="campo-entrada"
         type="text"
-        formControlName="name"
+        formControlName="nombre"
       />
       <div
         *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['required']"
@@ -15,14 +15,19 @@
       >
         El nombre es requerido
       </div>
-     <div *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minLength']"
-      class="alert alert-danger">El nombre debe tener un minimo de 
-      {{signupForm.get('nombre')?.errors?.['minLength']?.requiredLength}} caracteres.</div>
+      <div
+        *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minLength']"
+        class="alert alert-danger"
+      >
+        El nombre debe tener un minimo de
+        {{signupForm.get('nombre')?.errors?.['minLength']?.requiredLength}}
+        caracteres.
+      </div>
     </div>
     <div class="form-element form-stack mb-3">
       <label for="apellido" class="form-label">Apellido:</label>
       <input
-        formControlName="surname"
+        formControlName="apellido"
         name="surname"
         class="campo-entrada"
         type="text"
@@ -37,7 +42,7 @@
     <div class="form-element form-stack mb-3">
       <label for="direccion" class="form-label">Dirección:</label>
       <input
-        formControlName="direction"
+        formControlName="direccion"
         name="direction"
         class="campo-entrada"
         type="text"
@@ -72,32 +77,55 @@
         class="campo-entrada"
         type="password"
       />
-      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
-      class="alert alert-danger">La contraseña es requerida.</div>
-      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minLength']"
-      class="alert alert-danger">La contraseña debe tener un minimo de 
-      {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}} caracteres.</div>
+      <div
+        *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
+        class="alert alert-danger"
+      >
+        La contraseña es requerida.
+      </div>
+      <div
+        *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minLength']"
+        class="alert alert-danger"
+      >
+        La contraseña debe tener un minimo de
+        {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}}
+        caracteres.
+      </div>
     </div>
-     <div class="form-element form-stack mb-3">
+    <div class="form-element form-stack mb-3">
       <label for="repassword" class="form-label">Repetir contraseña:</label>
       <input
-        formControlName="password"
-        name="password"
+        formControlName="password2"
+        name="password2"
         class="campo-entrada"
         type="password"
       />
-      <div *ngIf="signupForm.get('repassword')?.touched && signupForm.get('repassword')?.errors?.['required']"
-      class="alert alert-danger">La contraseña es requerida</div>
-    </div> 
+      <div
+        *ngIf="signupForm.get('password2')?.touched && signupForm.get('password2')?.errors?.['required']"
+        class="alert alert-danger"
+      >
+        La contraseña es requerida
+      </div>
+    </div>
     <div class="my-3">
-      <!--<button class="w-100 btn" style="color:black" type="submit" [disabled]="signupForm.invalid">Registrarse</button>-->
-      <input
-      class="btn btn-lg btn-success w-100 mt-2"
-      type="submit"
-      value="Crear Cuenta"
-    />
-      <a class="btn w-100 my-3" style="color: #2b2b2b; font-weight: 400;" href="/signin">Cancelar</a>
-  
+      <button class="btn btn-primary" type="submit" (click)="onSubmit()">
+        Registrarme
+      </button>
+
+      <!--  [disabled]="signupForm.invalid"
+        
+        <input
+        class="btn btn-lg btn-success w-100 mt-2"
+        type="submit"
+        value="Crear Cuenta"
+      /> -->
+      <a
+        class="btn w-100 my-3"
+        style="color: #2b2b2b; font-weight: 400"
+        routerLink="/signin"
+        routerLinkActive="active"
+        >Cancelar</a
+      >
     </div>
   </form>
 </div>
