@@ -26,16 +26,13 @@ exports.obtenerCarritos = async (req, res) => {
 exports.crearCarrito = async (req, res) => {
   try {
     let carrito = new Carrito();
-
     const jsonData = leerDBCarrito();
-
     jsonData.push(carrito);
-
-    guardarDBCarrito(carrito);
+    guardarDBCarrito(jsonData);
 
     carrito = await transformar(carrito);
-    
-    res.json(JSON.stringify(carrito));
+
+    res.json(carrito);
   } catch (error) {
     console.log(error);
     res.status(500).send("Hubo un error");
@@ -45,13 +42,13 @@ exports.crearCarrito = async (req, res) => {
 exports.eliminarCarrito = async (req, res) => {
   try {
     const jsonData = leerDBCarrito();
+    console.log(req);
 
     jsonData.forEach(function (element, index, arr) {
       if (element.id === req.params.id) {
         jsonData.splice(index, 1);
       }
     });
-
     guardarDBCarrito(jsonData);
 
     res.json({ msg: "Carrito eliminado con exito" });
@@ -65,7 +62,11 @@ exports.obtenerCarrito = async (req, res) => {
   try {
     const jsonData = leerDBCarrito();
 
-    const carrito = jsonData.find((carrito) => carrito.id === req.params.id);
+    const carritoBuscado = jsonData.find(
+      (carrito) => carrito.id === req.params.id
+    );
+
+    const carrito = await transformar(carritoBuscado);
 
     res.json(carrito);
   } catch (error) {
@@ -82,14 +83,39 @@ exports.agregarProducto = async (req, res) => {
 
     let productJson = leerDBProducto();
 
-    const producto = await productJson.find((producto) => producto.id === idProducto);
+    const carritoBuscado = jsonData.find(
+      (carrito) => carrito.id === req.params.id
+    );
 
-    // let producto = new Producto("Picante", "Aderezo", 1000, 500, 50, "qsy");
+    const carrito = await transformar(carritoBuscado);
 
-    const carrito = jsonData.find((carrito) => carrito.id === req.params.id);
-    carrito.productos.push(producto);
+    const producto = await productJson.find(
+      (producto) => producto.id === idProducto
+    );
+    if (!producto) {
+      res.status(404).json({ msg: "No existe el producto" });
+    }
+
+    const productoExistente = await carrito.productos.find(
+      (producto) => producto.id === idProducto
+    );
+
+    if (productoExistente == undefined) {
+      carrito.productos.push(producto);
+    } else {
+      jsonData.forEach((carritoElement, index, arra) => {
+        if (carritoElement.id === carrito.id) {
+          carritoElement.productos.forEach(
+            (productElement, indexProduct, arra) => {
+              if (productElement.id === producto.id) {
+                productElement.cantidad = productElement.cantidad + 1;
+              }
+            }
+          );
+        }
+      });
+    }
     guardarDBCarrito(jsonData);
-
     res.send(carrito);
   } catch (error) {
     console.log(error);
@@ -97,20 +123,74 @@ exports.agregarProducto = async (req, res) => {
   }
 };
 
+exports.eliminarProductoCarrito = async (req, res) => {
+  try {
+    const { idProducto } = req.body;
 
-const transformar = async (carritoATransfomar)=>{
-
-    if(carritoATransfomar){
-        let productos = []
-
-        Object.keys(carritoATransfomar.productos).forEach((key) => {
-            const producto =  carritoATransfomar.productos[key];
-            productos.push(producto);
-          });
-      
-          carritoATransfomar.productos = productos;
-    
-          return carritoATransfomar;
+    const jsonData = leerDBCarrito();
+    let productJson = leerDBProducto();
+    const carritoBuscado = jsonData.find(
+      (carrito) => carrito.id === req.params.id
+    );
+    const carrito = await transformar(carritoBuscado);
+    const producto = await productJson.find(
+      (producto) => producto.id === idProducto
+    );
+    if (!producto) {
+      res.status(404).json({ msg: "No existe el producto" });
     }
-    return {msg: "Error"};
+
+    jsonData.forEach((carritoElement, index, arra) => {
+      if (carritoElement.id === carrito.id) {
+        carritoElement.productos.forEach(
+          (productElement, indexProduct, arra) => {
+            if (productElement.id === producto.id) {
+              productElement.cantidad = productElement.cantidad - 1;
+              if(productElement.cantidad <= 0){
+                carritoElement.productos.splice(indexProduct, 1);
+              }
+            }
+          }
+        );
+      }
+    });
+
+    guardarDBCarrito(jsonData);
+    res.send(carrito);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};
+
+const transformar = async (carritoATransfomar) => {
+  if (carritoATransfomar) {
+    let productos = [];
+
+    Object.keys(carritoATransfomar.productos).forEach((key) => {
+      const producto = carritoATransfomar.productos[key];
+      productos.push(producto);
+    });
+
+    carritoATransfomar.productos = productos;
+
+    return carritoATransfomar;
+  }
+  return { msg: "Error" };
+};
+
+const transformarProducto = async (productoATransformar) => {
+  if (productoATransformar) {
+    let productos = [];
+
+    Object.keys(productoATransformar).forEach((key) => {
+      const producto = productoATransformar[key];
+      productos.push(producto);
+    });
+
+    productoATransformar = productos;
+
+    return productoATransformar;
+  }
+  return { msg: "Error" };
 };

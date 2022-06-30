@@ -28,6 +28,7 @@ const leerDBCarrito = () => {
   const carritos = [];
   const productos = [];
 
+  
   Object.keys(data).forEach((key) => {
     const carrito = data[key];
     carritos.push(carrito);

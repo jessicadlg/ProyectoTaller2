@@ -1,12 +1,5 @@
 const {v4: uudiv4} = require('uuid');
 
-// const carritoSchema = Schema({
-//   listaProductos: { 
-//     type: Schema.Types.ObjectId,
-//     ref: "Producto" 
-//   }
-// });
-
 class Carrito {
 
   id = "";
@@ -15,7 +8,7 @@ class Carrito {
 
 
   constructor(){
-    this.productos = {}
+    this.productos = []
     this.id = uudiv4();
     this.idUsuario = uudiv4();
   }

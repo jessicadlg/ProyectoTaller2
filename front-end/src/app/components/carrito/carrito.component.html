@@ -9,12 +9,14 @@
           <tr>
             <th scope="col">Producto</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
             <th scope="col">Precio</th>
             <th scope="col">Descuento</th>
+            <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of carrito; let i = index">
+          <tr *ngFor="let p of carrito.productos; let i = index">
             <td class="col-1">
               <img
                 src="{{ p.imagen }}"
@@ -23,8 +25,18 @@
               />
             </td>
             <td>{{ p.nombre }}</td>
-            <td>${{ p.precioWithDiscount }}</td>
+            <td>{{ p.cantidad }}</td>
+            <td>${{ p.precioConDescuento }}</td>
             <td>{{ p.descuento }}%</td>
+            <td>
+              <button type="button" class="close" style="
+                  background-color: rgb(204, 0, 0);
+                  border: none;
+                  color: #ffffff;
+                " data-dismiss="modal" (click)="eliminarProductoDelCarrito(carrito.id,p.id)">
+                &times;
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -74,9 +86,9 @@
           </div>
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">{{ carrito.length }} Productos</h5>
-              <p class="card-text">Transporte: $200</p>
-              <p class="card-text">Total: $1200</p>
+              <h5 class="card-title">{{ carrito.productos.length }} Productos</h5>
+              <!-- <p class="card-text">Transporte: $200</p> -->
+              <p class="card-text">{{total}}</p>
             </div>
           </div>
           <button type="submit" class="btn btn-success btn-block w-100">
@@ -87,7 +99,7 @@
     </div>
     <div class="col-2 offset-1 m-auto animate__animated animate__backInRight">
       <h5 class="mb-3">Tambien te puede interesar:</h5>
-      <div *ngFor="let p of carrito; let i = index" class="col m-0 p-0">
+      <div *ngFor="let p of carrito.productos; let i = index" class="col m-0 p-0">
         <div class="card-group animate__animated animate__flipInX">
           <div class="card">
             <img
@@ -98,7 +110,7 @@
             <div class="card-body">
               <h5 class="card-title" style="font-size: 18px">{{ p.nombre }}</h5>
               <h4 class="cart-text d-inline text-dark">
-                ${{ p.precioWithDiscount }}
+                ${{ p.precioConDescuento }}
                 <h4 class="mx-2 d-inline text-success" style="font-size: 18px">
                   {{ p.descuento }}% Off
                 </h4>
@@ -109,7 +121,7 @@
                 class="w-100 btn btn-lg"
                 style="background-color: #d26410; color: #ffffff"
                 type="submit"
-                value="Ver"
+                value="Agregar" (click)="agregarProductoAlCarrito(p.id)"
               />
             </div>
           </div>

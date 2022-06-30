@@ -1,5 +1,18 @@
-{
-  "id": "995b2aef-7c73-42da-b640-d176aa96dd41",
-  "idUsuario": "13f3cecb-48b2-43b2-9904-92e24966518e",
-  "productos": {}
-}
+[
+  {
+    "id": "6e9338ea-eec0-4ba8-9b4b-031efc6a5061",
+    "idUsuario": "1360f862-bc06-4534-a34e-46ac2c63064a",
+    "productos": [
+      {
+        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
+        "nombre": "Mayonesa",
+        "categoria": "Aderezo",
+        "precioOriginal": 1000,
+        "precioConDescuento": 500,
+        "descuento": 50,
+        "imagen": "assets/images/Comida1.png",
+        "cantidad": 7
+      }
+    ]
+  }
+]

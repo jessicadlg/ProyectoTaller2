@@ -1,47 +1,63 @@
 [
   {
     "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
-    "nombre": "Mayonesa",
-    "categoria": "Aderezo",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
+    "nombre": "Alimento Whole Earth Farms Recipe para perro adulto todos los tamaños sabor pollo y salmón en bolsa de 12 kgImagen 1 de 1 de Alimento Whole Earth Farms Recipe para perro adulto todos los tamaños sabor pollo y salmón en bolsa de 12 kg",
+    "categoria": "Alimento",
+    "precioOriginal": 8100,
+    "precioConDescuento": 4050,
     "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+    "imagen": "assets/images/Comida1.png",
+    "cantidad": 1
   },
   {
     "id": "f5dbe501-0ed2-40a7-aecf-df304f157921",
-    "nombre": "Queso",
-    "categoria": "Aderezo",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
-    "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
-  },
-  {
-    "id": "83a69c3e-92aa-4496-ad74-21ffe5a47d86",
-    "nombre": "Mayonesa",
-    "categoria": "./database/carrito.json",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
-    "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
-  },
-  {
-    "id": "7b30bc18-1782-429c-a1ac-853bbe9252ea",
-    "nombre": "Mayonesa",
-    "categoria": "./database/carrito.json",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
-    "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+    "nombre": "Alimento Pro Plan OptiHealth Adult para perro adulto de raza grande sabor pollo y arroz en bolsa de 3 kg",
+    "categoria": "Alimento",
+    "precioOriginal": 2373,
+    "precioConDescuento": 2040,
+    "descuento": 20,
+    "imagen": "assets/images/Comida2.png",
+    "cantidad": 1
+
   },
   {
     "id": "af28caa2-c8a0-48df-934f-3c73f8712225",
-    "nombre": "Mayonesa",
-    "categoria": "./database/carrito.json",
-    "precioOriginal": 1000,
-    "precioConDescuento": 500,
-    "descuento": 50,
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp"
+    "nombre": "Alimento Dog Selection Criadores para perro adulto de raza mediana y grande sabor carne y pollo en bolsa de 21 kg",
+    "categoria": "Alimento",
+    "precioOriginal": 4850,
+    "precioConDescuento": 4500,
+    "descuento": 10,
+    "imagen": "assets/images/Comida3.png",
+    "cantidad": 1
+  },
+  {
+    "id": "af28caa2-c8a0-48df-934f-3c73f8712345",
+    "nombre": "Alimento Dogui Recetas Caseras para perro adulto sabor carne, cereales y arroz en bolsa de 24 kg",
+    "categoria": "Alimento",
+    "precioOriginal": 4890,
+    "precioConDescuento": 4100,
+    "descuento": 35,
+    "imagen": "assets/images/Comida4.png",
+    "cantidad": 1
+  },
+  {
+    "id": "af28caa2-c8a0-48df-934f-3c73f8711111",
+    "nombre": "Alimento Sieger Super Premium para perro adulto de raza mediana y grande sabor mix en bolsa de 15 kg",
+    "categoria": "Alimento",
+    "precioOriginal": 7789,
+    "precioConDescuento": 7050,
+    "descuento": 10,
+    "imagen": "assets/images/Comida5.png",
+    "cantidad": 1
+  },
+  {
+    "id": "af28caa2-c8a0-48df-934f-3c73f8722222",
+    "nombre": "Alimento Raza Super Premium para perro adulto de raza mediana y grande sabor mix bolsa por 21 Kg",
+    "categoria": "Alimento",
+    "precioOriginal": 3570,
+    "precioConDescuento": 2820,
+    "descuento": 15,
+    "imagen": "assets/images/Comida6.png",
+    "cantidad": 1
   }
 ]
