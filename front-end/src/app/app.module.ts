@@ -12,7 +12,8 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ToastrModule} from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ToastrModule} from 'ngx-toastr';
     BannerComponent,
     ProductosComponent,
     CarritoComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
