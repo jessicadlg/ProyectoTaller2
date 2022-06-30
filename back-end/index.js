@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv').config();
 
 // Creamos el servidor
 const app = express();
@@ -22,8 +23,10 @@ const request = require('request');
 // const jwt = require('jsonwebtoken');
 
 const poolData = {
-  UserPoolId: process.env.USER_POOL_ID,
-  ClientId: process.env.CLIENT_ID,
+  UserPoolId: 'us-east-1_TRmT0DwQy',
+  ClientId: 'si5i934nqu5vaj71ofkmo41f9',
+  // UserPoolId: process.env.USER_POOL_ID,
+  // ClientId: process.env.CLIENT_ID,
 };
 const pool_region = 'us-east-2';
 
@@ -124,7 +127,7 @@ app.post('/signin', (req, res) => {
 });
 
 //
-
+// const port = process.env.PORT || 3000;+ port
 app.listen(4000, () => {
   console.log('El servidor esta corriendo perfectamente en el puerto 4000');
 });
