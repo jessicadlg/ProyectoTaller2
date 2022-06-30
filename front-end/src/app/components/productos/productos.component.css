@@ -24,6 +24,7 @@ a {
 
 [class*=card-product-grid] .img-wrap {
     position: relative;
+    
 }
 
 .img-wrap {
@@ -105,3 +106,17 @@ a {
 
 
   
+  .modal .modal-dialog {
+    width: 50%;
+    max-width: none;
+    height: 100%;
+  }
+  .modal .modal-content {
+    height: 70%;
+    border: 0;
+    max-width: none;
+    border-radius: 0;
+  }
+  .modal .modal-body {
+    overflow-y: auto;
+  }

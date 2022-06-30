@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-4">
       <h1 class="mb-5">Filtros</h1>
-      <h6>Etapa de vida de la mascota</h6>
+      <h6>Etapa de vida</h6>
       <div class="row">
         <div class="col"><input type="radio" name="Adulto" id="" /> Adulto</div>
       </div>
@@ -51,6 +51,18 @@
       <div class="row">
         <div class="col"><input type="radio" name="" id="" /> Dog Chow</div>
       </div>
+      
+      <div class="dropdown-divider mt-3 mb-3"></div>
+      <h6>Tipo de comida</h6>
+      <div class="row">
+        <div class="col"><input type="radio" name="Adulto" id="" /> Seca </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="radio" name="Cachorro" id="" /> Húmeda
+        </div>
+      </div>
+  
     </div>
     <div class="col-8">
       <h1 class="mb-5">Productos</h1>
@@ -112,8 +124,9 @@
           ></button>
         </div>
         <div class="modal-body">
+          <div class="modal-content">
           <div *ngIf="carrito.productos.length > 0; else elseCondicion">
-            <table class="table table-responsive-xs table-striped table-hover">
+            <table class="table table-responsive table-striped table-hover">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">Producto</th>
@@ -155,6 +168,7 @@
                 </tr>
               </tbody>
             </table>
+          </div>
           </div>
           <ng-template #elseCondicion>
             <p>No tiene productos agregado al carrito actualmente</p>
