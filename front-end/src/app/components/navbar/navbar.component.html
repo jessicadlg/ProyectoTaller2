@@ -1,17 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fbfbfb;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFFFF">
+  
   <div class="container">
-    <img class="navbar-brand" width="100px" height="100px" src="assets/logo.png" />
-    <!--<button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>-->
+    <img class="navbar-brand" width="80px" height="80px" src="assets/logo.png" />
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -27,13 +17,13 @@
           <a class="nav-link" href="/productos">Productos</a>
         </li>
       </ul>
-      <!--<span style="color:#143F6B" class="animate__animated animate__bounceInRight p-3" *ngIf="changeText">Ver carrito</span>-->
       <div *ngIf="router.url.startsWith('/productos')">
         <button (mouseover)="changeText=true" (mouseout)="changeText=false"
           id="cart" type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fa fa-shopping-cart" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#myModal"></i>
         </button>
       </div>
+    
     </div>
   </div>
 </nav>

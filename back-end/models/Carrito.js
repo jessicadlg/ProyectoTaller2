@@ -13,7 +13,6 @@ class Carrito {
     this.idUsuario = uudiv4();
   }
 
-
 }
 
 module.exports = Carrito;

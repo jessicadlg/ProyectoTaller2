@@ -4,95 +4,129 @@
   <div class="row">
     <div class="col-4">
       <h1 class="mb-5">Filtros</h1>
-      <h6>Edad</h6>
+      <h6>Etapa de vida</h6>
       <div class="row">
-        <div class="col"><input type="radio" name="1" id="" /> Cachorros</div>
+        <div class="col"><input type="radio" name="Adulto" id="" /> Adulto</div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="2" id="" /> Adultos</div>
+        <div class="col">
+          <input type="radio" name="Cachorro" id="" /> Cachorro
+        </div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="3" id="" /> Mayores</div>
+        <div class="col"><input type="radio" name="Senior" id="" /> Senior</div>
       </div>
-      <div class="dropdown-divider"></div>
+      <div class="row">
+        <div class="col"><input type="radio" name="Junior" id="" /> Junior</div>
+      </div>
+
+      <div class="dropdown-divider mt-3 mb-3"></div>
       <h6>Precio</h6>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="4" id="" /> Hasta $2000
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Hasta $3000</div>
       </div>
       <div class="row">
         <div class="col">
-          <input type="radio" name="5" id="" /> $2000 a $8000
+          <input type="radio" name="" id="" /> $3000 a $6000
         </div>
       </div>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="3" id="" /> Más de $8000
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Mas de $6000</div>
       </div>
-      <div class="dropdown-divider"></div>
-      <h6>Peso</h6>
+
+      <div class="dropdown-divider mt-3 mb-3"></div>
+      <h6>Marca</h6>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="4" id="" /> Menos de 3Kg
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Royal Canin</div>
       </div>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="5" id="" /> Entre 3Kg y 8Kg
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Vitalcan</div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="" id="" /> Pro Plan</div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="" id="" /> Excellent</div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="" id="" /> Dog Chow</div>
+      </div>
+      
+      <div class="dropdown-divider mt-3 mb-3"></div>
+      <h6>Tipo de comida</h6>
+      <div class="row">
+        <div class="col"><input type="radio" name="Adulto" id="" /> Seca </div>
       </div>
       <div class="row">
         <div class="col">
-          <input type="radio" name="6" id="" /> Más de 8Kg
+          <input type="radio" name="Cachorro" id="" /> Húmeda
         </div>
       </div>
+  
     </div>
     <div class="col-8">
       <h1 class="mb-5">Productos</h1>
-      <div class="row m-0 p-0">
-        <div *ngFor="let p of productos; let i = index" class="col-4 m-0 p-0">
-          <div class="card-group animate__animated animate__flipInX">
-            <div class="card">
-              <img src="https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp" alt="" class="" />
-              <div class="card-body">
-                <h5 class="card-title" style="font-size: 22px">
-                  {{ p.nombre }}
-                </h5>
-                <h4 class="cart-text d-inline text-dark">
-                  ${{ p.precioConDescuento }}
-                  <h4 class="d-inline tachado text-secondary" style="font-size: 15px">
-                    ${{ p.precioOriginal }}
-                  </h4>
-                  <h4 class="mx-2 d-inline text-success" style="font-size: 18px">
-                    {{ p.descuento }}% Off
-                  </h4>
-                </h4>
+      <div class="container">
+        <div class="row">
+          <div
+            *ngFor="let p of productos; let i = index"
+            class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4"
+          >
+            <figure class="card card-product-grid h-100">
+              <div class="img-wrap rounded bg-gray-light">
+                <span class="topbar">
+                  <span class="badge tag-discount">-{{ p.descuento }}%</span>
+                </span>
+                <img class="mix-blend-mode" src="{{ p.imagen }}" />
               </div>
-              <div class="m-auto">
-                <button class="btn mb-3" style="background-color: #be5301; color: #ffffff" type="button"
-                  (click)="agregarProductoAlCarrito(p.id)" (click)="agregarCarrito()">
-                  Agregar al carrito
+              <figcaption class="card-product-info">
+                <a href="#" class="title"> {{ p.nombre }}</a>
+                <div class="price-wrap">
+                  <div>
+                    <span class="price">${{ p.precioOriginal }}</span>
+                    <del class="discount-price"
+                      >${{ p.precioConDescuento }}</del
+                    >
+                  </div>
+                </div>
+                <button
+                  (click)="agregarProductoAlCarrito(p.id)"
+                  (click)="agregarCarrito()"
+                  class="btn btn-sm btn-outline-success w-100 mt-2"
+                >
+                  Agregar a carrito
                 </button>
-              </div>
-            </div>
+                <p class="badge tag-category">Categoría: {{ p.categoria }}</p>
+              </figcaption>
+            </figure>
           </div>
-          <br />
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
+          <div class="modal-content">
           <div *ngIf="carrito.productos.length > 0; else elseCondicion">
-            <table class="table table-responsive-xs table-striped table-hover">
+            <table class="table table-responsive table-striped table-hover">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">Producto</th>
@@ -106,18 +140,28 @@
               <tbody>
                 <tr *ngFor="let p of carrito.productos; let i = index">
                   <td class="col-1">
-                    <img src="{{ p.imagen }}" alt="" class="rounded img-thumbnail img-fluid" />
+                    <img
+                      src="{{ p.imagen }}"
+                      alt=""
+                      class="rounded img-thumbnail img-fluid"
+                    />
                   </td>
                   <td>{{ p.nombre }}</td>
-                  <td>{{p.cantidad}}</td>
+                  <td>{{ p.cantidad }}</td>
                   <td>{{ p.precioConDescuento }}</td>
                   <td>{{ p.descuento }}</td>
                   <td>
-                    <button type="button" class="close" style="
+                    <button
+                      type="button"
+                      class="close"
+                      style="
                         background-color: rgb(204, 0, 0);
                         border: none;
                         color: #ffffff;
-                      " data-dismiss="modal" (click)="eliminarProductoDelCarrito(carrito.id,p.id)">
+                      "
+                      data-dismiss="modal"
+                      (click)="eliminarProductoDelCarrito(carrito.id, p.id)"
+                    >
                       &times;
                     </button>
                   </td>
@@ -125,13 +169,19 @@
               </tbody>
             </table>
           </div>
+          </div>
           <ng-template #elseCondicion>
             <p>No tiene productos agregado al carrito actualmente</p>
           </ng-template>
         </div>
         <div class="modal-footer">
-          <button type="button"  [disabled]="carrito.productos.length <= 0" class="btn"
-            style="background-color: #be5301; color: #ffffff" [routerLink]="['/carrito', carrito.id]">
+          <button
+            type="button"
+            [disabled]="carrito.productos.length <= 0"
+            class="btn"
+            style="background-color: #be5301; color: #ffffff"
+            [routerLink]="['/carrito', carrito.id]"
+          >
             Continuar
           </button>
         </div>
