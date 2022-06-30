@@ -4,88 +4,112 @@
   <div class="row">
     <div class="col-4">
       <h1 class="mb-5">Filtros</h1>
-      <h6>Edad</h6>
+      <h6>Etapa de vida de la mascota</h6>
       <div class="row">
-        <div class="col"><input type="radio" name="1" id="" /> Cachorros</div>
+        <div class="col"><input type="radio" name="Adulto" id="" /> Adulto</div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="2" id="" /> Adultos</div>
+        <div class="col">
+          <input type="radio" name="Cachorro" id="" /> Cachorro
+        </div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="3" id="" /> Mayores</div>
+        <div class="col"><input type="radio" name="Senior" id="" /> Senior</div>
       </div>
-      <div class="dropdown-divider"></div>
+      <div class="row">
+        <div class="col"><input type="radio" name="Junior" id="" /> Junior</div>
+      </div>
+
+      <div class="dropdown-divider mt-3 mb-3"></div>
       <h6>Precio</h6>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="4" id="" /> Hasta $2000
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Hasta $3000</div>
       </div>
       <div class="row">
         <div class="col">
-          <input type="radio" name="5" id="" /> $2000 a $8000
+          <input type="radio" name="" id="" /> $3000 a $6000
         </div>
       </div>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="3" id="" /> Más de $8000
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Mas de $6000</div>
       </div>
-      <div class="dropdown-divider"></div>
-      <h6>Peso</h6>
+
+      <div class="dropdown-divider mt-3 mb-3"></div>
+      <h6>Marca</h6>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="4" id="" /> Menos de 3Kg
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Royal Canin</div>
       </div>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="5" id="" /> Entre 3Kg y 8Kg
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Vitalcan</div>
       </div>
       <div class="row">
-        <div class="col">
-          <input type="radio" name="6" id="" /> Más de 8Kg
-        </div>
+        <div class="col"><input type="radio" name="" id="" /> Pro Plan</div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="" id="" /> Excellent</div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="" id="" /> Dog Chow</div>
       </div>
     </div>
     <div class="col-8">
       <h1 class="mb-5">Productos</h1>
       <div class="container">
         <div class="row">
-        <div *ngFor="let p of productos; let i = index" class="col-12 col-sm-12 col-md-6 col-lg-6  mb-4">
+          <div
+            *ngFor="let p of productos; let i = index"
+            class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4"
+          >
             <figure class="card card-product-grid h-100">
-                <div class="img-wrap rounded bg-gray-light">
-                    <span class="topbar">
-                        <span class="badge tag-discount">-{{p.descuento}}%</span>
-                    </span>
-                    <img class="mix-blend-mode" src="{{p.imagen}}">
+              <div class="img-wrap rounded bg-gray-light">
+                <span class="topbar">
+                  <span class="badge tag-discount">-{{ p.descuento }}%</span>
+                </span>
+                <img class="mix-blend-mode" src="{{ p.imagen }}" />
+              </div>
+              <figcaption class="card-product-info">
+                <a href="#" class="title"> {{ p.nombre }}</a>
+                <div class="price-wrap">
+                  <div>
+                    <span class="price">${{ p.precioOriginal }}</span>
+                    <del class="discount-price"
+                      >${{ p.precioConDescuento }}</del
+                    >
+                  </div>
                 </div>
-                <figcaption class="card-product-info">
-                    <a href="#" class="title"> {{ p.nombre }}</a>
-                    <div class="price-wrap">
-                      <div>
-                        <span class="price">${{p.precioOriginal}}</span>
-                        <del class="discount-price">${{p.precioConDescuento}}</del>
-                      </div>
-                    </div>
-                    <button class="btn btn-sm btn-outline-success w-100 mt-2">Agregar a carrito</button>
-                    <p class="badge tag-category">Categoría: {{p.categoria}}</p>
-
-                </figcaption>
+                <button
+                  (click)="agregarProductoAlCarrito(p.id)"
+                  (click)="agregarCarrito()"
+                  class="btn btn-sm btn-outline-success w-100 mt-2"
+                >
+                  Agregar a carrito
+                </button>
+                <p class="badge tag-category">Categoría: {{ p.categoria }}</p>
+              </figcaption>
             </figure>
-        </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
           <div *ngIf="carrito.productos.length > 0; else elseCondicion">
@@ -103,18 +127,28 @@
               <tbody>
                 <tr *ngFor="let p of carrito.productos; let i = index">
                   <td class="col-1">
-                    <img src="{{ p.imagen }}" alt="" class="rounded img-thumbnail img-fluid" />
+                    <img
+                      src="{{ p.imagen }}"
+                      alt=""
+                      class="rounded img-thumbnail img-fluid"
+                    />
                   </td>
                   <td>{{ p.nombre }}</td>
-                  <td>{{p.cantidad}}</td>
+                  <td>{{ p.cantidad }}</td>
                   <td>{{ p.precioConDescuento }}</td>
                   <td>{{ p.descuento }}</td>
                   <td>
-                    <button type="button" class="close" style="
+                    <button
+                      type="button"
+                      class="close"
+                      style="
                         background-color: rgb(204, 0, 0);
                         border: none;
                         color: #ffffff;
-                      " data-dismiss="modal" (click)="eliminarProductoDelCarrito(carrito.id,p.id)">
+                      "
+                      data-dismiss="modal"
+                      (click)="eliminarProductoDelCarrito(carrito.id, p.id)"
+                    >
                       &times;
                     </button>
                   </td>
@@ -127,11 +161,17 @@
           </ng-template>
         </div>
         <div class="modal-footer">
-          <button type="button"  [disabled]="carrito.productos.length <= 0" class="btn"
-            style="background-color: #be5301; color: #ffffff" [routerLink]="['/carrito', carrito.id]">
+          <button
+            type="button"
+            [disabled]="carrito.productos.length <= 0"
+            class="btn"
+            style="background-color: #be5301; color: #ffffff"
+            [routerLink]="['/carrito', carrito.id]"
+          >
             Continuar
           </button>
         </div>
       </div>
     </div>
   </div>
+</div>

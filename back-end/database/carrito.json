@@ -4,14 +4,14 @@
     "idUsuario": "1360f862-bc06-4534-a34e-46ac2c63064a",
     "productos": [
       {
-        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
-        "nombre": "Mayonesa",
-        "categoria": "Aderezo",
-        "precioOriginal": 1000,
-        "precioConDescuento": 500,
-        "descuento": 50,
-        "imagen": "assets/images/Comida1.png",
-        "cantidad": 7
+        "id": "f5dbe501-0ed2-40a7-aecf-df304f157921",
+        "nombre": "Alimento Pro Plan OptiHealth Adult",
+        "categoria": "Alimento",
+        "precioOriginal": 2373,
+        "precioConDescuento": 2040,
+        "descuento": 20,
+        "imagen": "assets/images/Comida2.png",
+        "cantidad": 1
       }
     ]
   }
