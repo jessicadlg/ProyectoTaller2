@@ -1,11 +1,6 @@
-.promos {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
 
 .promos img{
-    width: 45%;
+    width: auto;
     height: auto;
     border-radius: 10px;
 }
@@ -18,3 +13,43 @@ h2 {
     font-weight: 400;
     font-size: 20px;
 }
+
+
+.container {
+  display: flex;
+  align-content: space-around;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  height: auto;
+  padding: 2rem 0rem;
+}
+
+.circle {
+    background-color: #cee6ff;
+    width: 200px;
+    height: auto;
+    border-radius: 1000px; 
+    padding: 1em;
+}
+
+
+.aligner {
+  display: flex;
+  align-items: space-between;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.garantia {
+    background-color: #c15110;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+  }
+
+
+
