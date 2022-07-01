@@ -47,6 +47,7 @@ export class CarritoComponent implements OnInit {
             this.carrito.productos.forEach((element,index,arra)=>{
               console.log(typeof element.precioConDescuento);
               this.total += element.precioConDescuento;
+              this.toastr.info('¡Confirma tu compra!', "¡Ya casi lo tenes!");
             })
           }else{
             this.router.navigate(['/productos'], { queryParams: { error: true } });
