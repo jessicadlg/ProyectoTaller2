@@ -42,9 +42,12 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
     this.signinForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
-    console.log(this.signinForm);
+    console.log('form->', this.signinForm.value);
   }
 
   onSubmit(): void {
@@ -56,15 +59,11 @@ export class SigninComponent implements OnInit {
       .subscribe((value) => {
         alert(JSON.stringify(value));
         var response = value;
+        //me falto q al dar todo el proceso me lleve a la vista productos ya logueado
+        // if (response === 'ok') this.router.navigate(['/productos']);
         if (response === 'UserNotConfirmedException') {
-          this.router.navigate(['confirm']);
+          this.router.navigate(['/confirm']);
         }
       });
-    //   if (this.signinForm.valid) {
-    //     console.log('form->', this.signinForm.value);
-    //   } else {
-    //     console.log('no valido');
-    //   }
-    // }
   }
 }
