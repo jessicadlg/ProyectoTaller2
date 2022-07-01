@@ -6,63 +6,168 @@
       <h1 class="mb-5">Filtros</h1>
       <h6>Etapa de vida</h6>
       <div class="row">
-        <div class="col"><input type="radio" name="Adulto" id="" /> Adulto</div>
-      </div>
-      <div class="row">
         <div class="col">
-          <input type="radio" name="Cachorro" id="" /> Cachorro
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Adulto
         </div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="Senior" id="" /> Senior</div>
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Cachorro
+        </div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="Junior" id="" /> Junior</div>
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Senior
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Junior
+        </div>
       </div>
 
       <div class="dropdown-divider mt-3 mb-3"></div>
       <h6>Precio</h6>
       <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Hasta $3000</div>
-      </div>
-      <div class="row">
         <div class="col">
-          <input type="radio" name="" id="" /> $3000 a $6000
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Hasta $3000
         </div>
       </div>
       <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Mas de $6000</div>
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          $3000 a $6000
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Mas de $6000
+        </div>
       </div>
 
       <div class="dropdown-divider mt-3 mb-3"></div>
       <h6>Marca</h6>
       <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Royal Canin</div>
-      </div>
-      <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Vitalcan</div>
-      </div>
-      <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Pro Plan</div>
-      </div>
-      <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Excellent</div>
-      </div>
-      <div class="row">
-        <div class="col"><input type="radio" name="" id="" /> Dog Chow</div>
-      </div>
-      
-      <div class="dropdown-divider mt-3 mb-3"></div>
-      <h6>Tipo de comida</h6>
-      <div class="row">
-        <div class="col"><input type="radio" name="Adulto" id="" /> Seca </div>
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Royal Canin
+        </div>
       </div>
       <div class="row">
         <div class="col">
-          <input type="radio" name="Cachorro" id="" /> Húmeda
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Vitalcan
         </div>
       </div>
-  
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Pro Plan
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Excellent
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Dog Chow
+        </div>
+      </div>
+
+      <div class="dropdown-divider mt-3 mb-3"></div>
+      <h6>Tipo de comida</h6>
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Seca
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input
+            type="radio"
+            id="customRadio1"
+            name="customRadio"
+            class="custom-control-input"
+          />
+          Húmeda
+        </div>
+      </div>
     </div>
     <div class="col-8">
       <h1 class="mb-5">Productos</h1>
@@ -125,50 +230,50 @@
         </div>
         <div class="modal-body">
           <div class="modal-content">
-          <div *ngIf="carrito.productos.length > 0; else elseCondicion">
-            <table class="table table-responsive table-striped table-hover">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">Producto</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">Descuento</th>
-                  <th scope="col">Eliminar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let p of carrito.productos; let i = index">
-                  <td class="col-1">
-                    <img
-                      src="{{ p.imagen }}"
-                      alt=""
-                      class="rounded img-thumbnail img-fluid"
-                    />
-                  </td>
-                  <td>{{ p.nombre }}</td>
-                  <td>{{ p.cantidad }}</td>
-                  <td>{{ p.precioConDescuento }}</td>
-                  <td>{{ p.descuento }}</td>
-                  <td>
-                    <button
-                      type="button"
-                      class="close"
-                      style="
-                        background-color: rgb(204, 0, 0);
-                        border: none;
-                        color: #ffffff;
-                      "
-                      data-dismiss="modal"
-                      (click)="eliminarProductoDelCarrito(carrito.id, p.id)"
-                    >
-                      &times;
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <div *ngIf="carrito.productos.length > 0; else elseCondicion">
+              <table class="table table-responsive table-striped table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of carrito.productos; let i = index">
+                    <td class="col-1">
+                      <img
+                        src="{{ p.imagen }}"
+                        alt=""
+                        class="rounded img-thumbnail img-fluid"
+                      />
+                    </td>
+                    <td>{{ p.nombre }}</td>
+                    <td>{{ p.cantidad }}</td>
+                    <td>{{ p.precioConDescuento }}</td>
+                    <td>{{ p.descuento }}</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="close"
+                        style="
+                          background-color: rgb(204, 0, 0);
+                          border: none;
+                          color: #ffffff;
+                        "
+                        data-dismiss="modal"
+                        (click)="eliminarProductoDelCarrito(carrito.id, p.id)"
+                      >
+                        &times;
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <ng-template #elseCondicion>
             <p>No tiene productos agregado al carrito actualmente</p>
