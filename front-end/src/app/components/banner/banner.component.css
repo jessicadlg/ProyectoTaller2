@@ -1,5 +1,6 @@
 .carousel {
     margin-bottom: 1rem;
+    height: ;
   }
 
   .carousel-caption {
@@ -8,7 +9,7 @@
   }
   
   .carousel-item {
-    height: 40rem;
+    height: 100%;
   }
   
   .marketing .col-lg-4 {
