@@ -44,9 +44,9 @@ export class ConfirmComponent implements OnInit {
         email: this.confirmForm.get('email')?.value,
       })
       .subscribe((value) => {
-        //alert(JSON.stringify(value));
+        alert(JSON.stringify(value));
         var response = value;
-        if (response === 'ok') this.router.navigate(['']);
+        if (response === 'ok') this.router.navigate(['/signin']);
         if (response === 'CodeMismatchException') this.statusCode = false;
       });
   }

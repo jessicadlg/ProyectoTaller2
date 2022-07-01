@@ -23,7 +23,6 @@ import {
 export class SignupComponent implements OnInit {
   //probando cognito
   signupForm!: FormGroup;
-  email!: String;
   passwordsCorrect!: Boolean;
   formatValid!: Boolean;
   statusOk!: Boolean;
@@ -36,12 +35,21 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      nombre: new FormControl('', Validators.required),
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
       apellido: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
-      password2: new FormControl('', Validators.required),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      password2: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
   }
 
@@ -67,7 +75,8 @@ export class SignupComponent implements OnInit {
           var response = value;
           if (response === 'InvalidParameterException')
             this.formatValid = false;
-          if (response === 'ok') this.statusOk = true;
+          if (response === 'ok') this.router.navigate(['/confirm']);
+          this.statusOk = true;
         });
     }
   }

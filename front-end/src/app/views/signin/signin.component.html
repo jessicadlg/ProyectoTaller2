@@ -16,6 +16,13 @@
         >
           El email es requerido
         </div>
+        <!-- //segunda validacion  -->
+        <div
+          class="alert alert-danger"
+          *ngIf="signinForm.controls['email'].hasError('email')"
+        >
+          Formato de email Invalido.
+        </div>
       </div>
       <div class="form-element form-stack">
         <label for="password" class="form-label">Contraseña</label>
@@ -30,6 +37,14 @@
           class="alert alert-danger"
         >
           La contraseña es requerida
+        </div>
+        <!-- seg validacion extension -->
+        <div
+          *ngIf="signinForm.get('password')?.touched && signinForm.get('password')?.errors?.['minlength']"
+          class="alert alert-danger"
+        >
+          Debe tener un mínimo de 8 caracteres y debe incluir una letra
+          mayúscula, un número, y un carácter especial.
         </div>
       </div>
       <div class="form-element form-submit">

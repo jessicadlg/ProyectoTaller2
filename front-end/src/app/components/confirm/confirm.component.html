@@ -1,60 +1,58 @@
 <div class="formContainer">
   <form [formGroup]="confirmForm" (ngSubmit)="confirmAccount()">
-    <div class="form-outline mb-4">
-      <h3>Confirmar Cuenta</h3>
-      <p class="form-label">Email</p>
-      <input
-        type="email"
-        id="email"
-        class="form-control"
-        formControlName="email"
-        placeholder="Ingrese su Correo"
-      />
-      <p
-        class="error"
-        *ngIf="
-          confirmForm.controls['email'].hasError('required') &&
-          confirmForm.controls['email'].dirty
-        "
-      >
-        Este campo es requerido.
-      </p>
-      <p class="error" *ngIf="confirmForm.controls['email'].hasError('email')">
-        Formato Invalido.
-      </p>
-    </div>
+    <h2 class="mb-3 fw-normal text-center">Confirmación de cuenta</h2>
 
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <p class="form-label">Codigo de Confirmacion</p>
-      <input
-        type="text"
-        id="code"
-        class="form-control"
-        formControlName="code"
-        placeholder="Ingrese el codigo que recibio"
-      />
-      <p
-        class="error"
-        *ngIf="
-          confirmForm.controls['code'].hasError('required') &&
-          confirmForm.controls['code'].dirty
-        "
-      >
-        Este campo es requerido.
-      </p>
-    </div>
+    <div class="content">
+      <div class="form-element form-stack">
+        <label for="email" class="form-label">Email</label>
+        <input
+          class="campo-entrada ms-2"
+          type="email"
+          name="email"
+          formControlName="email"
+        />
+        <div
+          *ngIf="confirmForm.get('email')?.touched && confirmForm.get('email')?.errors?.['required']"
+          class="alert alert-danger"
+        >
+          El email es requerido
+        </div>
+        <!-- //segunda validacion  -->
+        <div
+          class="alert alert-danger"
+          *ngIf="confirmForm.controls['email'].hasError('email')"
+        >
+          Formato de email Invalido.
+        </div>
+      </div>
 
-    <!-- Submit button -->
-    <button
-      type="submit"
-      class="btn btn-outline-dark btn-block mb-4"
-      [disabled]="confirmForm.invalid"
-    >
-      Confirmar Cuenta
-    </button>
-    <div *ngIf="!statusCode" class="error">
-      El codigo o usuario ingresado no son validos.
+      <div class="form-outline mb-4">
+        <p class="form-label">Codigo de Confirmacion</p>
+        <input
+          type="text"
+          id="code"
+          class="campo-entrada ms-2"
+          formControlName="code"
+        />
+        <div
+          *ngIf="confirmForm.get('code')?.touched && confirmForm.get('code')?.errors?.['required']"
+          class="alert alert-danger"
+        >
+          El codigo de verificación es requerido
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        class="btn btn-outline-dark btn-block mb-4"
+        [disabled]="confirmForm.invalid"
+      >
+        Confirmar Cuenta
+      </button>
+      <div *ngIf="!statusCode" class="alert alert-danger">
+        El código o usuario ingresado no son válidos.
+      </div>
     </div>
   </form>
 </div>

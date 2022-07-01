@@ -4,7 +4,7 @@
     <div class="form-element form-stack mb-3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input
-        name="name"
+        name="nombre"
         class="campo-entrada"
         type="text"
         formControlName="nombre"
@@ -15,13 +15,12 @@
       >
         El nombre es requerido
       </div>
+      <!-- seg validacion extension -->
       <div
-        *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minLength']"
+        *ngIf="signupForm.get('nombre')?.touched && signupForm.get('nombre')?.errors?.['minlength']"
         class="alert alert-danger"
       >
-        El nombre debe tener un minimo de
-        {{signupForm.get('nombre')?.errors?.['minLength']?.requiredLength}}
-        caracteres.
+        Debe tener un mínimo de 3 caracteres
       </div>
     </div>
     <div class="form-element form-stack mb-3">
@@ -54,19 +53,27 @@
         La direccion es requerida
       </div>
     </div>
-    <div class="form-element form-stack mb-3">
-      <label for="email" class="form-label">Email:</label>
+
+    <div class="form-element form-stack">
+      <label for="email" class="form-label">Email</label>
       <input
-        formControlName="email"
+        class="campo-entrada ms-2"
+        type="email"
         name="email"
-        class="campo-entrada"
-        type="text"
+        formControlName="email"
       />
       <div
         *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
         class="alert alert-danger"
       >
         El email es requerido
+      </div>
+      <!-- //segunda validacion  -->
+      <div
+        class="alert alert-danger"
+        *ngIf="signupForm.controls['email'].hasError('email')"
+      >
+        Formato de email Invalido.
       </div>
     </div>
     <div class="form-element form-stack mb-3">
@@ -83,13 +90,13 @@
       >
         La contraseña es requerida.
       </div>
+      <!-- seg validacion extension -->
       <div
-        *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minLength']"
+        *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']"
         class="alert alert-danger"
       >
-        La contraseña debe tener un minimo de
-        {{signupForm.get('password')?.errors?.['minLength']?.requiredLength}}
-        caracteres.
+        Debe tener un mínimo de 8 caracteres y debe incluir una letra mayúscula,
+        un número, y un carácter especial.
       </div>
     </div>
     <div class="form-element form-stack mb-3">
@@ -104,9 +111,24 @@
         *ngIf="signupForm.get('password2')?.touched && signupForm.get('password2')?.errors?.['required']"
         class="alert alert-danger"
       >
-        La contraseña es requerida
+        Reingresar la contraseña es requerido.
+      </div>
+      <!-- seg validacion extension -->
+      <div
+        *ngIf="signupForm.get('password2')?.touched && signupForm.get('password2')?.errors?.['minlength']"
+        class="alert alert-danger"
+      >
+        Debe tener un mínimo de 8 caracteres y debe incluir una letra mayúscula,
+        un número, y un carácter especial.
       </div>
     </div>
+    <small class="alert alert-danger" *ngIf="this.passwordsCorrect === false"
+      >Las contraseñas no coinciden.</small
+    >
+    <small class="alert alert-danger" *ngIf="this.formatValid === false"
+      >El formato de la contraseña no es válido.</small
+    >
+
     <div class="my-3">
       <button class="btn btn-primary" type="submit" (click)="onSubmit()">
         Registrarme
