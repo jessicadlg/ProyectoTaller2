@@ -4,16 +4,6 @@
     "idUsuario": "1360f862-bc06-4534-a34e-46ac2c63064a",
     "productos": [
       {
-        "id": "f5dbe501-0ed2-40a7-aecf-df304f157921",
-        "nombre": "Alimento Pro Plan OptiHealth Adult para perro adulto de raza grande sabor pollo y arroz en bolsa de 3 kg",
-        "categoria": "Alimento",
-        "precioOriginal": 2373,
-        "precioConDescuento": 2040,
-        "descuento": 20,
-        "imagen": "assets/images/Comida2.png",
-        "cantidad": 1
-      },
-      {
         "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
         "nombre": "Alimento Whole Earth Farms Recipe para perro adulto todos los tamaños sabor pollo y salmón en bolsa de 12 kg",
         "categoria": "Alimento",
@@ -24,13 +14,13 @@
         "cantidad": 1
       },
       {
-        "id": "af28caa2-c8a0-48df-934f-3c73f8712345",
-        "nombre": "Alimento Dogui Recetas Caseras para perro adulto sabor carne, cereales y arroz en bolsa de 24 kg",
+        "id": "f5dbe501-0ed2-40a7-aecf-df304f157921",
+        "nombre": "Alimento Pro Plan OptiHealth Adult para perro adulto de raza grande sabor pollo y arroz en bolsa de 3 kg",
         "categoria": "Alimento",
-        "precioOriginal": 4890,
-        "precioConDescuento": 4100,
-        "descuento": 35,
-        "imagen": "assets/images/Comida4.png",
+        "precioOriginal": 2373,
+        "precioConDescuento": 2040,
+        "descuento": 20,
+        "imagen": "assets/images/Comida2.png",
         "cantidad": 1
       }
     ]

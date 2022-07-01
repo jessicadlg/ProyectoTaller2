@@ -60,10 +60,13 @@ export class SignupComponent implements OnInit {
     ) {
       this.formatValid = true;
       this.passwordsCorrect = false;
+      console.log("Entro aca 1");
     } else {
+      console.log("Entro aca 2");
+      
       this.passwordsCorrect = true;
       this.httpClient
-        .post('http://localhost:4000/signup', {
+        .post('http://localhost:4000/api/cognito/signup', {
           password: this.signupForm.get('password')?.value,
           password2: this.signupForm.get('password2')?.value,
           email: this.signupForm.get('email')?.value,
@@ -73,6 +76,8 @@ export class SignupComponent implements OnInit {
         })
         .subscribe((value) => {
           var response = value;
+          console.log(value);
+          
           if (response === 'InvalidParameterException')
             this.formatValid = false;
           if (response === 'ok') this.router.navigate(['/confirm']);

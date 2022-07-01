@@ -6,7 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { CognitoService } from '../../../services/cognito.service';
+import { ToastrService } from 'ngx-toastr';
 import {
   HttpClient,
   HttpHeaders,
@@ -26,7 +27,9 @@ export class ConfirmComponent implements OnInit {
   constructor(
     protected router: Router,
     private formBuilder: FormBuilder,
-    protected httpClient: HttpClient
+    protected httpClient: HttpClient,
+    private cognitoService: CognitoService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -37,17 +40,43 @@ export class ConfirmComponent implements OnInit {
     });
   }
 
+  // confirmAccount() {
+  //   this.httpClient
+  //     .post('http://localhost:4000/confirm', {
+  //       code: this.confirmForm.get('code')?.value,
+  //       email: this.confirmForm.get('email')?.value,
+  //     })
+  //     .subscribe((value) => {
+  //       alert(JSON.stringify(value));
+  //       var response = value;
+  //       if (response === 'ok') this.router.navigate(['/signin']);
+  //       if (response === 'CodeMismatchException') this.statusCode = false;
+  //     });
+  // }
+
   confirmAccount() {
-    this.httpClient
-      .post('http://localhost:4000/confirm', {
-        code: this.confirmForm.get('code')?.value,
-        email: this.confirmForm.get('email')?.value,
-      })
-      .subscribe((value) => {
-        alert(JSON.stringify(value));
-        var response = value;
-        if (response === 'ok') this.router.navigate(['/signin']);
-        if (response === 'CodeMismatchException') this.statusCode = false;
-      });
+    this.cognitoService
+      .confirmarCuenta(
+        this.confirmForm.get('email')?.value,
+        this.confirmForm.get('code')?.value
+      )
+      .subscribe(
+        (data) => {
+          let { error, msg } = data;
+          console.log(data);
+          if (error) {
+            this.statusCode = false;
+            this.toastr.error('Ha ocurrido un error, intenta otra vez', '¡Ups!');
+            this.toastr.error('Ha ocurrido un error, intenta otra vez', '¡Ups!');
+          } else if (msg) {
+            this.toastr.success(msg);
+            this.router.navigate(['/signin']);
+            this.toastr.success("");
+          }
+        },
+        (error) => {
+          this.toastr.error('Ha ocurrido un error, intenta otra vez', '¡Ups!');
+        }
+      );
   }
 }

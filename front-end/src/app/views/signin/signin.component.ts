@@ -6,11 +6,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CognitoService } from '../../../services/cognito.service';
 import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signin',
@@ -36,7 +39,9 @@ export class SigninComponent implements OnInit {
   constructor(
     protected router: Router,
     private fb: FormBuilder,
-    protected httpClient: HttpClient
+    protected httpClient: HttpClient,
+    private cognitoService: CognitoService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -50,20 +55,24 @@ export class SigninComponent implements OnInit {
     console.log('form->', this.signinForm.value);
   }
 
-  onSubmit(): void {
-    this.httpClient
-      .post('http://localhost:4000/signin', {
-        password: this.signinForm.get('password')?.value,
-        email: this.signinForm.get('email')?.value,
-      })
-      .subscribe((value) => {
-        alert(JSON.stringify(value));
-        var response = value;
-        //me falto q al dar todo el proceso me lleve a la vista productos ya logueado
-        // if (response === 'ok') this.router.navigate(['/productos']);
-        if (response === 'UserNotConfirmedException') {
-          this.router.navigate(['/confirm']);
+  onSubmit() {
+    this.cognitoService
+      .signIn(
+        this.signinForm.get('password')?.value,
+        this.signinForm.get('email')?.value
+      )
+      .subscribe(
+        (data) => {
+          let {login} = data;
+          console.log(login)
+          if(login){
+            this.router.navigate(['/productos']);
+            this.toastr.success("¡Bienvenido!");
+          }
+        },
+        (error) => {
+          this.toastr.error('Ha ocurrido un error, intenta otra vez', '¡Ups!');
         }
-      });
+      );
   }
 }
