@@ -4,8 +4,8 @@ const router = express.Router();
 const cognitoController = require('../controllers/cognitoController');
 
 // api/cognito
-router.post('/signup', cognitoController.signin);
-router.post('/signin', cognitoController.signup);
+router.post('/signup', cognitoController.signup);
+router.post('/signin', cognitoController.signin);
 router.post('/confirm', cognitoController.confirm);
 
 
