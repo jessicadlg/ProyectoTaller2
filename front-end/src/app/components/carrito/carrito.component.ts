@@ -12,6 +12,7 @@ import { PedidoService } from '../../../services/pedido.service';
 })
 export class CarritoComponent implements OnInit {
   total:number = 0;
+  cantidad:number = 0;
   carrito: Carrito = new Carrito(
     '',
     '',
@@ -38,6 +39,8 @@ export class CarritoComponent implements OnInit {
   }
 
   obtenerCarrito() {
+    let total = 0;
+    let cantidad = 0;
       this.carritoService.obtenerCarrito(this.carrito.id).subscribe(
         (data) => {
           console.log('busco el carrito');
@@ -45,9 +48,11 @@ export class CarritoComponent implements OnInit {
           if(id){
             this.carrito = new Carrito(id, idUsuario, productos);
             this.carrito.productos.forEach((element,index,arra)=>{
-              console.log(typeof element.precioConDescuento);
-              this.total += element.precioConDescuento;
+                total += element.precioConDescuento * element.cantidad;
+                cantidad += element.cantidad;
             })
+            this.total = total;
+            this.cantidad = cantidad;
             this.toastr.info('¡Confirma tu compra!', "¡Ya casi lo tenes!");
             this.toastr.info('¡Confirma tu compra!', "¡Ya casi lo tenes!");
           }else{
@@ -88,7 +93,7 @@ export class CarritoComponent implements OnInit {
     this.pedidoService.guardarProducto(this.carrito.id).subscribe((data)=>{
         let {msg} = data;
         this.toastr.success(msg);
-        this.toastr.success(msg);
+        this.router.navigate(['/productos']);
     },
     (error)=>{
         console.log(error);
