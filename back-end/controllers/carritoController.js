@@ -59,7 +59,7 @@ exports.eliminarCarrito = async (req, res) => {
 };
 
 exports.obtenerCarrito = async (req, res) => {
-  try {
+  try {    
     const jsonData = leerDBCarrito();
 
     const carritoBuscado = jsonData.find(

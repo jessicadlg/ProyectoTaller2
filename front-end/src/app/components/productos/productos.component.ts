@@ -13,7 +13,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class ProductosComponent implements OnInit {
   productos: Producto[] = [];
-  carrito: Carrito = new Carrito('6e9338ea-eec0-4ba8-9b4b-031efc6a5061', '', []);
+  carrito: Carrito = new Carrito('', '', []);
 
   // PRODUCTO: Producto = {
   //   id: "313",

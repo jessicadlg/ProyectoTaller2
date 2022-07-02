@@ -2,14 +2,10 @@ const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 const CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 const AWS = require('aws-sdk');
 const request = require('request');
-// const jwkToPem = require('jwk-to-pem');
-// const jwt = require('jsonwebtoken');
 
 const poolData = {
   UserPoolId: 'us-east-1_TRmT0DwQy',
   ClientId: 'si5i934nqu5vaj71ofkmo41f9',
-  // UserPoolId: process.env.USER_POOL_ID,
-  // ClientId: process.env.CLIENT_ID,
 };
 const pool_region = 'us-east-2';
 
@@ -29,19 +25,13 @@ exports.signin = async(req,res)=>{
         Value: req.body.apellido,
       })
     );
-    //   attributeList.push(
-    //     new AmazonCognitoIdentity.CognitoUserAttribute({
-    //       Name: 'phone_number',
-    //       Value: req.body.telefono,
-    //     })
-    //   );
+
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
         Name: 'email',
         Value: req.body.email,
       })
     );
-    //attributeList.push(new AmazonCognitoIdentity.CognitoUserAttribute({Name:"password",Value: req.body.password}));
   
     userPool.signUp(
       req.body.email,
@@ -75,9 +65,6 @@ exports.signup = async (req,res)=>{
       var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
       cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
-          //console.log('access token + ' + result.getAccessToken().getJwtToken());
-          //console.log('id token + ' + result.getIdToken().getJwtToken());
-          //console.log('refresh token + ' + result.getRefreshToken().getToken());
           res.json(
             {
               login: 'Login Correcto',
@@ -91,7 +78,6 @@ exports.signup = async (req,res)=>{
 }
 
 exports.confirm = async(req,res)=>{
-    console.log(req.body);
     var userData = {
     Username: req.body.email,
     Pool: userPool,

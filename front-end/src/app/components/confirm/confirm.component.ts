@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { CognitoService } from '../../../services/cognito.service';
 import { ToastrService } from 'ngx-toastr';
+
 import {
   HttpClient,
   HttpHeaders,
@@ -29,7 +30,7 @@ export class ConfirmComponent implements OnInit {
     private formBuilder: FormBuilder,
     protected httpClient: HttpClient,
     private cognitoService: CognitoService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -66,8 +67,8 @@ export class ConfirmComponent implements OnInit {
           console.log(data);
           if (error) {
             this.statusCode = false;
-            this.toastr.error('Ha ocurrido un error, intenta otra vez', '¡Ups!');
-            this.toastr.error('Ha ocurrido un error, intenta otra vez', '¡Ups!');
+            this.toastr.error(error);
+            this.toastr.error(error);
           } else if (msg) {
             this.toastr.success(msg);
             this.router.navigate(['/signin']);
@@ -79,4 +80,5 @@ export class ConfirmComponent implements OnInit {
         }
       );
   }
+
 }

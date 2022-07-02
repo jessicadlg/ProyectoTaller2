@@ -3,6 +3,7 @@ const fs = require("fs");
 //esta es la ruta donde guardaremos en nuestro simulador de db que en este caso es un json
 const carrito = "./database/carrito.json";
 const producto = "./database/productos.json";
+const pedido =  "./database/pedido.json";
 
 const guardarDBCarrito = (data) => {
   fs.writeFileSync(carrito, JSON.stringify(data, null, 2));
@@ -10,6 +11,10 @@ const guardarDBCarrito = (data) => {
 
 const guardarDBProducto = (data) => {
   fs.writeFileSync(producto, JSON.stringify(data, null, 2));
+};
+
+const guardarDBPedido = (data) => {
+  fs.writeFileSync(pedido, JSON.stringify(data, null, 2));
 };
 
 const leerDBCarrito = () => {
@@ -64,9 +69,36 @@ const leerDBProducto = () => {
   return productos;
 };
 
+const leerDBPedido = () => {
+
+  if (!fs.existsSync(pedido)) {
+    return null;
+  }
+
+  const info = fs.readFileSync(pedido, { encoding: "utf-8" });
+  const data = JSON.parse(info);
+
+  const productos = [];
+  const pedidos = [];
+  
+  Object.keys(data).forEach((key) => {
+    const pedido = data[key];
+    pedidos.push(pedido);
+    Object.keys(pedido.productos).forEach((key) => {
+      const producto = pedido.productos[key];
+      productos.push(producto);
+    });
+  });
+
+  return pedidos;
+};
+
+
 module.exports = {
   guardarDBCarrito,
   leerDBCarrito,
   leerDBProducto,
-  guardarDBProducto
+  guardarDBProducto,
+  leerDBPedido,
+  guardarDBPedido,
 };
