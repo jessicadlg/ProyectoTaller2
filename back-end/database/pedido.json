@@ -1,28 +1,3 @@
-[
-  {
-    "idPedido": "d4f19e7d-a060-4198-8915-7b189d25334b",
-    "idCarrito": "2143940b-723e-4975-b75a-d83fdad1fe82",
-    "productos": [
-      {
-        "id": "f5dbe501-0ed2-40a7-aecf-df304f157921",
-        "nombre": "Alimento Pro Plan OptiHealth Adult para perro adulto de raza grande sabor pollo y arroz en bolsa de 3 kg",
-        "categoria": "Alimento",
-        "precioOriginal": 2373,
-        "precioConDescuento": 2040,
-        "descuento": 20,
-        "imagen": "assets/images/Comida2.png",
-        "cantidad": 3
-      },
-      {
-        "id": "bdc76dab-ea34-4588-ad6e-c5346bf07d42",
-        "nombre": "Alimento Whole Earth Farms Recipe para perro adulto todos los tamaños sabor pollo y salmón en bolsa de 12 kg",
-        "categoria": "Alimento",
-        "precioOriginal": 8100,
-        "precioConDescuento": 4050,
-        "descuento": 50,
-        "imagen": "assets/images/Comida1.png",
-        "cantidad": 2
-      }
-    ]
-  }
-]
+{
+  
+}

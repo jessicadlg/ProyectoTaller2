@@ -11,7 +11,7 @@ const pool_region = 'us-east-2';
 
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
-exports.signin = async(req,res)=>{
+exports.signup = async(req,res)=>{
     var attributeList = [];
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({
@@ -52,7 +52,7 @@ exports.signin = async(req,res)=>{
 }
 
 
-exports.signup = async (req,res)=>{
+exports.signin = async (req,res)=>{
     var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails({
         Username: req.body.email,
         Password: req.body.password,
