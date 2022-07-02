@@ -15,18 +15,6 @@ export class ProductosComponent implements OnInit {
   productos: Producto[] = [];
   carrito: Carrito = new Carrito('', '', []);
 
-  // PRODUCTO: Producto = {
-  //   id: "313",
-  //   nombre: 'Mayonesa',
-  //   categoria: 'Aderezo',
-  //   imagen:
-  //     'https://http2.mlstatic.com/D_NQ_NP_733120-MLA50131748752_052022-O.webp',
-  //   precioOriginal: 1000,
-  //   precioConDescuento: 500,
-  //   descuento: 50,
-  //   cantidad: 10
-  // };
-
   constructor(
     protected router: Router,
     private productoService: ProductoService,
@@ -39,7 +27,6 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerProductos();
     this.agregarCarrito();
-    console.log(this.activatedRoute.snapshot.params);
 
     let error = this.activatedRoute.snapshot.queryParamMap.get('error');
     if(error == "true"){
@@ -47,17 +34,6 @@ export class ProductosComponent implements OnInit {
     }
 
   }
-
-  // agregarProducto() {
-  //   console.log(this.PRODUCTO);
-  //   this.productoService.guardarProducto(this.PRODUCTO).subscribe(
-  //     (data) => {},
-  //     (error) => {
-  //       console.log(error);
-  //       // this.productoForm.reset();
-  //     }
-  //   );
-  // }
 
   agregarCarrito() {
     if (this.carrito.id === '') {

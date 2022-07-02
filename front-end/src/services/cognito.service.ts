@@ -10,8 +10,6 @@ export class CognitoService {
   constructor(private http: HttpClient) { }
 
   url = 'http://localhost:4000/api/cognito/';
-
-
   
   confirmarCuenta(email:string,code:string): Observable<any> { 
     return this.http.post(this.url + "confirm",{email,code});
