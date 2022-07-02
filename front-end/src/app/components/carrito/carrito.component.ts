@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Carrito } from 'src/app/models/Carrito';
 import { CarritoService } from 'src/services/carrito.service';
 import {ToastrService} from 'ngx-toastr';
-
+import { PedidoService } from '../../../services/pedido.service';
 
 @Component({
   selector: 'app-carrito',
@@ -19,7 +19,7 @@ export class CarritoComponent implements OnInit {
   );
 
   constructor(private router: Router,private activatedRoute:ActivatedRoute, private carritoService: CarritoService,
-    private toastr: ToastrService
+    private toastr: ToastrService,private pedidoService:PedidoService
     ) {
   }
 
@@ -47,8 +47,9 @@ export class CarritoComponent implements OnInit {
             this.carrito.productos.forEach((element,index,arra)=>{
               console.log(typeof element.precioConDescuento);
               this.total += element.precioConDescuento;
-              this.toastr.info('¡Confirma tu compra!', "¡Ya casi lo tenes!");
             })
+            this.toastr.info('¡Confirma tu compra!', "¡Ya casi lo tenes!");
+            this.toastr.info('¡Confirma tu compra!', "¡Ya casi lo tenes!");
           }else{
             this.router.navigate(['/productos'], { queryParams: { error: true } });
           }
@@ -64,7 +65,6 @@ export class CarritoComponent implements OnInit {
         (data) => {
           this.ngOnInit();
           this.toastr.show('Se elimino el producto del carrito');
-          this.router.navigate(['/productos']);
         },
         (error) => {
           console.log(error);
@@ -82,5 +82,16 @@ export class CarritoComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  guardarPedido(){
+    this.pedidoService.guardarProducto(this.carrito.id).subscribe((data)=>{
+        let {msg} = data;
+        this.toastr.success(msg);
+        this.toastr.success(msg);
+    },
+    (error)=>{
+        console.log(error);
+    })
   }
 }

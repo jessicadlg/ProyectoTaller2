@@ -31,7 +31,6 @@ exports.crearProducto = async (req, res) => {
   try {
     let {nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen,cantidad} = req.body;
     const jsonData = leerDBProducto();
-    // producto = new Producto("Ketchup", "Aderezo", 1000, 500, 50, "qsy");
     // Creamos nuestro producto
     let producto = new Producto(nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen,cantidad);
     jsonData.push(producto);
@@ -58,14 +57,13 @@ exports.obtenerProductos = async (req, res) => {
   }
 };
 
+
 exports.actualizarProducto = async (req, res) => {
   try {
     const {nombre,categoria,precioOriginal,precioConDescuento,descuento,imagen,cantidad} = req.body;
-    // let producto = await Producto.findById(req.params.id);
 
     const jsonData = leerDBProducto();
 
-    // let producto = new Producto("Sabora","Aderezo",1000,500,50,"qsy");
 
     const producto = jsonData.find((producto) => producto.id === req.params.id);
 
@@ -99,7 +97,6 @@ exports.actualizarProducto = async (req, res) => {
 exports.obtenerProducto = async (req, res) => {
 
     try {
-        // let producto = await Producto.findById(req.params.id);
         const jsonData = leerDBProducto();
 
         const productoEncontrado = await jsonData.find((producto) => producto.id === req.params.id);
@@ -131,15 +128,9 @@ exports.eliminarProducto = async (req, res) => {
                 jsonData.splice(index,1);
             }
         });
-        // delete jsonData[req.params.id];
         guardarDBProducto(jsonData);
-        // let producto = await Producto.findById(req.params.id);
 
-        // if(!producto) {
-        //     res.status(404).json({ msg: 'No existe el producto' })
-        // }
 
-        // await Producto.findOneAndRemove({ _id: req.params.id })
         res.json({ msg: 'Producto eliminado con exito' });
 
     } catch (error) {
