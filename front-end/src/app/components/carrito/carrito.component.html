@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-9 animate__animated animate__backInLeft">
       <h3 class="mb-3">Tus productos</h3>
-      <table class="table table-responsive-xs table-hover table-striped">
+      <table class="table table-responsive table-hover table-striped">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Producto</th>
@@ -99,39 +99,6 @@
         
       </div>
     </div>
-    <div class="col-2 offset-1 m-auto animate__animated animate__backInRight">
-      <h5 class="mb-3">Tambien te puede interesar:</h5>
-        <div
-        *ngFor="let p of carrito.productos; let i = index"
-            class="col-12"
-          >
-            <figure class="card card-product-grid h-100">
-              <div class="img-wrap rounded bg-gray-light">
-                <span class="topbar">
-                  <span class="badge tag-discount">-{{ p.descuento }}%</span>
-                </span>
-                <img class="mix-blend-mode" src="{{ p.imagen }}" />
-              </div>
-              <figcaption class="card-product-info">
-                <a href="#" class="title"> {{ p.nombre }}</a>
-                <div class="price-wrap">
-                  <div>
-                    <span class="price">${{ p.precioOriginal }}</span>
-                    <del class="discount-price"
-                      >${{ p.precioConDescuento }}</del
-                    >
-                  </div>
-                </div>
-                <button
-                  (click)="agregarProductoAlCarrito(p.id)"
-                  class="btn btn-sm btn-outline-success w-100 mt-2"
-                >
-                  Agregar a carrito
-                </button>
-                <p class="badge tag-category">Categoría: {{ p.categoria }}</p>
-              </figcaption>
-            </figure>
-        
-    </div>
+   
   </div>
 </div>

@@ -5,3 +5,26 @@
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
+
+.bg-confirm {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.campo-entrada {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 1em;
+  width: 100%;
+  padding: 5px 1px;
+  border-bottom: 1px solid #212121;
+}
+
+
+.fondo {
+  display: flex;
+  flex-direction: column;
+}
+
