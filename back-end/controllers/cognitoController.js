@@ -2,10 +2,12 @@ const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 const CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 const AWS = require('aws-sdk');
 const request = require('request');
+const dotenv = require('dotenv').config();
+
 
 const poolData = {
-  UserPoolId: 'us-east-1_TRmT0DwQy',
-  ClientId: 'si5i934nqu5vaj71ofkmo41f9',
+     UserPoolId: process.env.USER_POOL_ID,
+   ClientId: process.env.CLIENT_ID,
 };
 const pool_region = 'us-east-2';
 
@@ -13,18 +15,18 @@ const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
 exports.signup = async(req,res)=>{
     var attributeList = [];
-    attributeList.push(
-      new AmazonCognitoIdentity.CognitoUserAttribute({
-        Name: 'name',
-        Value: req.body.nombre,
-      })
-    );
-    attributeList.push(
-      new AmazonCognitoIdentity.CognitoUserAttribute({
-        Name: 'middle_name',
-        Value: req.body.apellido,
-      })
-    );
+    // attributeList.push(
+    //   new AmazonCognitoIdentity.CognitoUserAttribute({
+    //     Name: 'name',
+    //     Value: req.body.nombre,
+    //   })
+    // );
+    // attributeList.push(
+    //   new AmazonCognitoIdentity.CognitoUserAttribute({
+    //     Name: 'middle_name',
+    //     Value: req.body.apellido,
+    //   })
+    // );
 
     attributeList.push(
       new AmazonCognitoIdentity.CognitoUserAttribute({

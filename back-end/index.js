@@ -15,6 +15,8 @@ app.use('/api/pedido',require('./routes/pedido'));
 app.use(express.json());
 app.use(cors());
 
-app.listen(4000, () => {
-  console.log('El servidor esta corriendo perfectamente en el puerto 4000');
+ const port = process.env.PORT || 3000;+ port
+
+app.listen(port, () => {
+  console.log('El servidor esta corriendo perfectamente en el puerto: ' + port);
 });
